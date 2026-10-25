@@ -37,3 +37,45 @@ Reviewed-Content-Hash: design/decision-log.md bc9a2cfa5fd6da63245a8ad50346e01a3e
 Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8aaaaf81b030401e6
 Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
 Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+
+## Review — 2026-10-25 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, economy-designer, qa-lead, ux-designer, creative-director (senior)
+Blocking items: 17 (4 para prototipar, 13 para APPROVED) | Recommended: 12
+Summary: Re-revisión. Los 9 bloqueantes anteriores estaban corregidos. El hallazgo central (economy-designer, con `tools/balance/economia_mvp.py`) es que con tarifa plana la Carta Única rinde más dinero por UT que Tres Tiempos, así que la hipótesis de D-55 no se podía medir. El diseñador decidió precio por tirada con pago limitado por la reacción y el bolsillo del cliente, vela corta sin baja de Credulidad y negociar la vuelta del cliente (D-57). Se corrigieron todos los bloqueantes.
+Prior verdict resolved: Yes
+Findings:
+- [BLOCKING-proto] R1/R8/F3: Carta Única domina por ingreso/UT con tarifa plana — corregido: precio `π`, R8e, F3a, hipótesis y métrica de descarte (D-57).
+- [BLOCKING-proto] States: orden de la atención sin escribir — corregido: secuencia de 8 pasos; aclaratoria en dos pasos (R8a).
+- [BLOCKING-proto] R8/E1: cola de jornada 10–19 UT — corregido: vela corta sin baja, R8f negociar la vuelta, UT sobrantes se pierden, E1 sin advertencia con conjunto vacío.
+- [BLOCKING-proto] R11/E8: palabra ambigua como refugio — corregido: R11a requisito a Resonancia, ρ por cliente, E8 hipótesis con métrica.
+- [BLOCKING] AC-07 fallaba con código correcto; AC-18 control contra R6 (E3 → "ofrecible por catálogo"); AC-22 situación imposible; AC-17 pasaba con pesos uniformes — corregidos.
+- [BLOCKING] AC-11/AC-26 sin rechazo observable ni borde 5/4; AC-20 mezclaba Logic y UI — partidos.
+- [BLOCKING] R8c contra `n_acl`; F3 sin `P_exacto ⊆ P_pos⁺`; cita falsa "2 preguntas (§5.1)" — corregidos.
+- [BLOCKING] Convención de provisorios contra coding-standards; AC sin rótulo — corregidos.
+- [BLOCKING] UI: "todavía no la conocés" falso para tirada disponible con roles deshabilitados — tabla de estados.
+- [BLOCKING] Higiene (fila de Cartas, l.131, nota lean, Last Verified); Dos Caminos/Vínculo/Cruz Celta sin rótulo — R3a.
+- [RECOMMENDED] Rangos de costos como derivados de R12 y monotonía de costos.
+- [RECOMMENDED] Recalibrar `economia-mvp.md` y el script (tarifa plana, aclaratoria, trucos, l.90, l.92) — en Open Questions.
+- [RECOMMENDED] Propina negativa con Credulidad < 0; Credulidad sin fuentes (H7).
+- [RECOMMENDED] F2 pesimista por reposición; F4 sin restricción de la carta; `T_m^v` = 1; `η` con aclaratoria.
+- [RECOMMENDED] Partir AC-02/06/14/16/21/24/27/29; validador sobre el catálogo real; AC de R8d, E9 y transiciones.
+- [RECOMMENDED] UX a `/ux-design`: motivo visible, elegir ≠ confirmar en gamepad, forma + color, pista a posteriori, fatiga de E1, Cruz Celta en Switch.
+- [OPEN] R8f delata la tirada esperada (la opción aparece solo cuando no alcanza la esperada) — en Open Questions, a decidir.
+- [OPEN] Valores iniciales sin decidir por el diseñador: `B_tirada` ×1,1, baja de Credulidad 10, umbrales 80/95/50 %.
+Disputas: (i) game-designer y economy pedían reabrir D-55 — el CD no la reabrió; lo resolvió D-57 por decisión del diseñador. (ii) Rangos de costos (systems, bloqueante) — el CD los dejó recomendados. (iii) UX: al GDD solo la confirmación de la aclaratoria y la tabla de estados; el resto a `/ux-design`. (iv) Tiradas fuera del MVP — rótulo de pendiente en vez de bloqueo. (v) Provisorios — razón al qa-lead en la forma.
+Receipt: sellado sobre la versión revisada (antes de las correcciones); tiradas.md, decision-log.md y systems-index.md con su hash de HEAD, así que la versión corregida da CHANGED y pide re-revisión.
+Reviewed-Content-Hash: design/gdd/tiradas.md 4d5d22464f14f36ed7f194af656a148bff06950a
+Reviewed-Content-Hash: design/registry/entities.yaml 57baf5849122b8e7da5e197f10ee09b9b1f7b428
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md b37ffe1ed707d4760640a7e8f4326b8e22c51d47
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md 4303f55de6f7826bbc2bd9ee0cb08053a162e515
+Reviewed-Content-Hash: design/decision-log.md 2aa92e8da22491ae1ec9c73a3b0589d877501a21
+Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8aaaaf81b030401e6
+Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
+Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef
+Reviewed-Content-Hash: design/gdd/gdd-cross-review-2026-10-25.md e9634ded1a1500ba564587e6a9d3807e6bcb0520
