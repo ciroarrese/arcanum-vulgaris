@@ -197,7 +197,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | `k` | int | 1 a 6 | F1 | Posiciones comparables |
 | `P_alguno_acl` | float | 0 a 1 | calculated | Probabilidad de al menos un acierto posible con una aclaratoria en una posición comparable |
 
-- Como es ciega, una aclaratoria equivale a una carta más en una posición: la Carta Única pasa de 0,274 a **0,473** por 15 UT, y Tres Tiempos de 0,617 a **0,722** por 25 UT.
+- Como es ciega, una aclaratoria equivale a una carta más en una posición: sin valencia y con el conteo de Cartas previo a §4 (`design/balance/cifras-cartas.md`), la Carta Única pasa de 0,274 a **0,473** por 15 UT, y Tres Tiempos de 0,617 a **0,722** por 25 UT.
 - Si el jugador la pide en una posición libre, no suma acierto: la fórmula es una cota superior.
 
 ## Edge Cases
