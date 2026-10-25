@@ -93,7 +93,7 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
    | Ambigua | deseo, hogar, trabajo, ley, secreto, poder, rivalidad, fama, riesgo, cambio |
 
    El campo es de la Taxonomía, que lo incorporó en R1 (D-51).
-10. Si la forma del motivo es *sí o no*, el Generador primero sortea la respuesta verdadera (sí o no, con una proporción fija). Después sortea el tema del desenlace entre los temas de esa valencia (sí = favorable, no = desfavorable), con los pesos del mazo (Cartas F1). Un tema ambiguo nunca es el desenlace de una pregunta de sí o no. Esto es un contrato con el Generador.
+10. Si la forma del motivo es *sí o no*, el Generador primero sortea la respuesta verdadera (sí o no, con una proporción fija). Después sortea el tema del desenlace entre los temas de esa valencia (sí = favorable, no = desfavorable) que son sorteables en el mazo activo (`p_t` > 0), con los pesos del mazo (Cartas F1) renormalizados dentro de ese conjunto. Un tema que el mazo solo tiene como forzada no es candidato (Cartas F1, E9); un mazo sin temas sorteables de una valencia es error de datos (`MAZO_SIN_VALENCIA`, Cartas). Un tema ambiguo nunca es el desenlace de una pregunta de sí o no. Esto es un contrato con el Generador.
 11. En una pregunta de sí o no, el jugador afirma sí o no, con cualquier tirada. Compararlo con la respuesta verdadera, y castigar la contradicción con la palabra clave elegida, le corresponde a Interpretación y Resonancia. Tiradas solo garantiza que toda tirada que se ofrece tiene al menos una posición de desenlace, y las 5 la tienen.
 
 **Validación**
@@ -109,7 +109,7 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
 
 | Estado de una tirada en la partida | Significa | Pasa a |
 |---|---|---|
-| No disponible | Todavía no se desbloqueó (Dos Caminos, El Vínculo) o no se llegó a la sede (Cruz Celta) | Disponible, cuando se cumple su condición. Lo define el sistema de desbloqueo (Open Questions) |
+| No disponible | Todavía no se desbloqueó (Dos Caminos, El Vínculo) o no se llegó a la sede (Cruz Celta) | Disponible, cuando se cumple su condición. Lo decide Fama, Reputación y Ascenso de Sede (D-56) |
 | Disponible | Se ofrece si cumple R6 | No vuelve atrás durante la partida |
 
 Durante la lectura de un cliente: **elegida → repartida → (aclarada, opcional y una sola vez) → leída**. Mientras está elegida se puede cambiar sin costo; el paso a repartida cobra la tirada (R5) y no tiene vuelta atrás (R5, R8c).
@@ -225,7 +225,6 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | Mazo y Robo | Dura, *provisoria* | Reparte una carta por posición con orientación al azar (R7) |
 | Base de Datos de Cartas | Dura | `acierto_posible` (Cartas R12), solo para diseñar y calibrar la aclaratoria, nunca en juego (D-50); `P_pos⁺_v` y `P_cero_v(k)` para el sí o no (Cartas F3, F4). La composición de la build pasa los `k` de las tiradas habilitadas al informe de Cartas como argumento (`k_tiradas`, Cartas R12, D-53); Cartas no lee este catálogo |
 | Reloj de Vela | Dura, *provisoria* | Las UT que quedan, para saber qué tiradas se ofrecen (R6) y para la advertencia de E1 |
-| Sistema de desbloqueo | Blanda, *provisoria* | Cuándo pasan a disponibles Dos Caminos, El Vínculo y Cruz Celta (States). Todavía no se sabe qué sistema es (Open Questions) |
 
 **Dependen de Tiradas:**
 
@@ -237,6 +236,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | Prestidigitación | Dura | Las posiciones repartidas sobre las que actúa un truco |
 | Tapete y Tooltips de Cartas | Dura | La forma visual, los nombres de las posiciones y el costo |
 | Generador de Situaciones | Blanda | Qué tiradas están disponibles, para emitir solo formas alcanzables (E3), y el contrato del sí o no (R10) |
+| Fama, Reputación y Ascenso de Sede | Blanda, *provisoria* | Decide cuándo pasan a disponibles Dos Caminos, El Vínculo y Cruz Celta (States, D-56). Tiradas solo guarda el estado de disponibilidad que Fama le fija |
 
 **Bidireccionalidad:**
 
@@ -249,7 +249,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | Perilla | Valor actual | Rango seguro | Qué afecta |
 |---|---|---|---|
 | Costo en UT por tirada | Carta Única 10 · Tres Tiempos 20 · Dos Caminos 30 · El Vínculo 30 · Cruz Celta 45 (D-14) | Carta Única de 5 a 15 y Tres Tiempos de 15 a 30, siempre con `C_CU + n_acl · C_acl < C_TT`. La condición es regla del validador (R12) y manda sobre los rangos. Con 2 preguntas por cliente (5 UT cada una, GDD §5.1), un cliente cuesta 20 UT con Carta Única y 30 con Tres Tiempos: 5 o 3 clientes por vela de 100 UT, menos con aclaratorias o trucos | Clientes por jornada y rendimiento por UT (F3) |
-| Disponibilidad de Dos Caminos y El Vínculo | desbloqueables, condición a definir | La define el sistema de desbloqueo (Open Questions) | Cuándo se amplía el repertorio |
+| Disponibilidad de Dos Caminos y El Vínculo | desbloqueables, condición a definir | La define Fama, Reputación y Ascenso de Sede (D-56) | Cuándo se amplía el repertorio |
 | Sede mínima de la Cruz Celta | "sedes altas", a definir | Sede 4 a 8 en el Mapa B (fuera del MVP, que va de la Sede 1 a la 3) | Cuándo aparecen los asuntos graves |
 | Proporción de "sí" (`ρ`) | 0,5 | Solo 0,5: con cualquier otro valor, contestar siempre lo mismo conviene (F4). Es del Generador; está acá como referencia | Que el sí o no se deduzca del cliente y no se adivine |
 | Costo de la carta aclaratoria | 5 UT | 3 a 9, siempre con `C_CU + n_acl · C_acl < C_TT` (regla del validador, R12) | Cuánto cuesta rescatar una carta muda (F5) |
@@ -320,7 +320,7 @@ Convenciones de prueba:
 - **AC-07** (E2) — GIVEN Carta Única no disponible y 100 UT, WHEN se piden las tiradas ofrecidas, THEN no se ofrece ninguna y el cliente lleva la misma marca que en AC-06.
 - **AC-08** (R3, R6) — GIVEN Dos Caminos disponible, `rol.camino_b` deshabilitado y 100 UT, WHEN se piden las tiradas ofrecidas, THEN Dos Caminos no está. Lo mismo con El Vínculo y `rol.el_otro`. Control: con el rol habilitado, se ofrece.
 - **AC-09** (R6, States) — GIVEN Cruz Celta no disponible y 100 UT, WHEN se piden las tiradas ofrecidas, THEN no está. Control: disponible, se ofrece.
-- **AC-10** (States; *provisorio hasta el sistema de desbloqueo*) — GIVEN una tirada Disponible, WHEN cambia la jornada y cambia la sede, THEN sigue Disponible.
+- **AC-10** (States; *provisorio hasta el GDD de Fama, Reputación y Ascenso*) — GIVEN una tirada Disponible, WHEN cambia la jornada y cambia la sede, THEN sigue Disponible.
 
 **Lectura**
 - **AC-11** (R5, States) — GIVEN una tirada elegida, WHEN se elige otra antes de repartir, THEN se cambia. GIVEN una tirada repartida o leída, WHEN se elige otra, THEN se rechaza y la tirada no cambia. Un segundo reparto para el mismo cliente también se rechaza.
@@ -331,7 +331,7 @@ Convenciones de prueba:
 **Sí o no**
 - **AC-15** (R9) — La valencia de cada tema la prueban AC-35d y AC-35e de la Taxonomía; no se repite acá.
 - **AC-16** (R10, Tuning Knobs; *provisorio hasta el Generador*) — GIVEN un fixture con `ρ` = 1, WHEN se sortea la respuesta, THEN siempre sale sí; con `ρ` = 0, siempre no. En los datos reales, `ρ` = 0,5 (Config/Data).
-- **AC-17** (R10; *provisorio hasta el Generador*) — GIVEN una pregunta de sí o no, WHEN se arman los candidatos al desenlace, THEN son exactamente los 4 temas favorables para sí y los 9 desfavorables para no, con los pesos de Cartas F1 renormalizados dentro de la valencia; ningún tema ambiguo está entre los candidatos.
+- **AC-17** (R10; *provisorio hasta el Generador*) — GIVEN una pregunta de sí o no y un mazo de fixture donde `tema.culpa` aparece solo como forzada (`p_t` = 0) y los otros 12 temas con valencia tienen `p_t` > 0, WHEN se arman los candidatos al desenlace, THEN para sí son exactamente los 4 favorables y para no los 8 desfavorables sin `tema.culpa`, con los pesos de Cartas F1 renormalizados dentro de cada conjunto (suman 1); ningún tema ambiguo está entre los candidatos. Control: con `tema.culpa` como clara, está entre los 9 de no.
 - **AC-18** (E3; *provisorio hasta el Generador*) — GIVEN Dos Caminos no disponible, WHEN se arman las formas que el Generador puede emitir, THEN no incluyen `forma.dilema`. Control: con Dos Caminos disponible, la incluyen.
 
 **Advertencia de la vela**
@@ -356,7 +356,7 @@ Convenciones de prueba:
 | **Requisito de F2:** Resonancia mide en proporción a las posiciones comparables (`k`), no con un umbral fijo; si no, la Carta Única queda casi imposible de aprobar (72,6 % sin acierto posible). ¿El sí o no del jugador cuenta como un acierto propio? | GDD de Resonancia | Al diseñar Resonancia |
 | Cuánto vale `B_tirada` y cómo pesa justificar otra tirada (§5.4). ¿Las posiciones libres pueden contradecir? | GDD de Resonancia | Al diseñar Resonancia |
 | Contratos de R10 y E3: el sorteo del sí o no (`ρ` = 0,5, desenlace dentro de la valencia) y las formas solo con tirada disponible | GDD del Generador | Al diseñar el Generador |
-| Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD del sistema de desbloqueo (Fama o Trastienda) | Antes del Vertical Slice |
+| Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD de Fama, Reputación y Ascenso de Sede (D-56) | Antes del Vertical Slice |
 | Qué pasa con un cliente al que no se le puede ofrecer ninguna tirada (E1) | GDD de Fila y Mirilla | Al diseñar Fila y Mirilla |
 | ¿El estatus del cliente (§5.4, "lo que puede pagar") limita qué tiradas se le ofrecen? | GDD de Arquetipos, economía | Al diseñar Arquetipos |
 | ¿La tarifa crece con la tirada (un multiplicador por tirada en `economia-mvp.md`) o el valor de una tirada grande sale solo de Resonancia? Hoy la tarifa no depende de la tirada (F3), y en el MVP elegir tirada se reduce a reconocer la forma del motivo | Diseñador, economía | Prototipo del núcleo |

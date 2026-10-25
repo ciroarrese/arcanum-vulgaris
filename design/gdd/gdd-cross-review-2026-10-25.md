@@ -127,3 +127,5 @@ Un solo bloqueante (B1), por la regla de dependencia sin dueño; no afecta al MV
 ---
 
 **Aplicado el mismo día (quick fix):** W1 (Cartas cita Tiradas R8a y R1), W2 (Tiradas cita la valencia como R1 de la Taxonomía) e I5 (Cross-References de Tiradas con D-53 a D-55). Sigue abierto todo lo demás.
+
+**Resuelto el mismo día (D-56):** B1 (el desbloqueo de tiradas es de Fama, Reputación y Ascenso de Sede) y W7 (el desenlace del sí o no se sortea entre los temas de la valencia sorteables en el mazo activo; AC-17 reescrito).

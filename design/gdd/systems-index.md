@@ -47,7 +47,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 | 18 | Resonancia y Resolución | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Generador de Situaciones, Tiradas, Gramática de Combinación, Interpretación y Sentencia, Métricas del Cliente |
 | 19 | Prestidigitación | Gameplay | MVP | Not Started | — | Mazo y Robo, Tiradas, Métricas del Cliente, Reloj de Vela |
 | 20 | Economía de Sesión y Cierre de Caja | Economy | MVP | Not Started | — | Resonancia y Resolución, Arquetipos y Pieles de Mapa, Modificadores |
-| 21 | Fama, Reputación y Ascenso de Sede | Progression | MVP | Not Started | — | Resonancia y Resolución, Economía de Sesión y Cierre de Caja |
+| 21 | Fama, Reputación y Ascenso de Sede | Progression | MVP | Not Started | — | Resonancia y Resolución, Economía de Sesión y Cierre de Caja, Tiradas |
 | 22 | Fila y Mirilla | Gameplay | MVP | Not Started | — | Generador de Situaciones, Métricas del Cliente, Reloj de Vela, Fama, Reputación y Ascenso de Sede |
 | 23 | Deudas de Sangre | Gameplay | MVP | Not Started | — | Arquetipos y Pieles de Mapa, Resonancia y Resolución, Economía de Sesión y Cierre de Caja, Modificadores |
 | 24 | Trastienda | Economy | MVP | Not Started | — | Economía de Sesión y Cierre de Caja, Prestidigitación, Modificadores |
