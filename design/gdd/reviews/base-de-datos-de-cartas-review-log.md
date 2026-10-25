@@ -132,3 +132,40 @@ Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f
 Reviewed-Content-Hash: design/gdd/systems-index.md e921556719bf9fd342c6f05c566f0df1d1fcd3d3
 Reviewed-Content-Hash: design/balance/cobertura-cartas-waite.md 455ea670272e48b1985e9d57cb2f410dfe6a253c
 Reviewed-Content-Hash: design/decision-log.md a361d1b6720a59ae08e3dce9b3098a01f7492997
+
+## Review — 2026-10-25 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, qa-lead, creative-director (senior)
+Blocking items: 8 | Recommended: 8
+Summary: Sexta pasada. La aritmética de los AC cierra (verificada por tres lados), pero `k_tiradas` tenía tres definiciones y armaba un ciclo de código con Tiradas, Tiradas pedía `P_cero_v` sin contraparte, F4 rotulaba al revés el error de la reposición y no valía para `k` grandes, y el fixture no podía construir los AC de Ambición, *culpa* y valencia. El creative-director recomendó congelar el alcance hasta el prototipo (D-53); el diseñador aplicó además todos los recomendados.
+Prior verdict resolved: Yes — los 4 bloqueantes de la quinta pasada siguen corregidos; esta pasada encontró problemas nuevos.
+Findings:
+- [BLOCKING] Dependencies: la línea de `k_tiradas` cortaba la tabla y dejaba huérfanas 3 filas — corregido.
+- [BLOCKING] R12/Tuning Knobs: `k_tiradas` sin dueño y ciclo con Tiradas — corregido (argumento del informe; `pesos_sorteo` como única función de juego; AC-27b).
+- [BLOCKING] F4: "con reposición" sobreestima `P_cero` (pesimista, no optimista) y falla con `k` = 10 — corregido (válido para `k` ≤ 3; Open Question para `k` > 3).
+- [BLOCKING] F3/F4: contrato de valencia — corregido (`P_cero_v(k)`, `V_prior_v`, `MAZO_SIN_VALENCIA`, marca de valencia deducible; AC-18m, AC-18n).
+- [BLOCKING] AC: `taxonomia_prueba` sin Ambición, *culpa* ni valencias; `orientaciones_con_una` inicial sin definir — corregido (fixture completo).
+- [BLOCKING] AC-11/11c: no reproducible tras corregir, THEN contradictorio, muestra (c) vacía, semilla sin algoritmo — corregido (SHA del commit de datos, hash de entrada, algoritmo SHA-256, "última pasada").
+- [BLOCKING] AC: excepción de prototipo incoherente con AC-01/04b/04d/04e — corregido.
+- [BLOCKING] AC: convención de un solo punto falsa (18j, 09a, 15d, 05b, 05c, 03, 05e) — corregido (excepciones declaradas, secundarios nombrados, 18j partido).
+- [RECOMMENDED] F4: cota de Carta Única sin R4 (≥ 0,45 → ≥ 0,58; con aclaratoria ≥ 0,20 → ≥ 0,34) — corregido.
+- [RECOMMENDED] F4/E7: supuesto de 1 aclaratoria contra el rango 1–2 de Tiradas — corregido (`a` declarado).
+- [RECOMMENDED] Formulas: guardas explícitas y tolerancias de las marcas — corregido ("Comparaciones").
+- [RECOMMENDED] R12: progresión sin función, `T_m` = 0 en runtime, `validar_mazo` con mazo chico, AC-09d subespecificado — corregido.
+- [RECOMMENDED] AC: trazabilidad (pureza, invariantes, F4 con 3–4 palos, `P_cero_f(3)`, `T_m` = 1, R9) — corregido (AC-28, 18e, 18f2, 18c, 18h, 04g).
+- [RECOMMENDED] AC: controles sin sujeto, dominios, AC-22/18f/18a3 partidos, AC-26 por módulos, AC-20, desvío Config/Data, doble transcripción, AC-21 — corregido.
+- [RECOMMENDED] Plan de prototipo: separación de habilidad y umbral de impuesto — anotado en Open Questions y D-53.
+- [RECOMMENDED] Etiqueta "producción" en la excepción de prototipo — corregido.
+- [NICE] `q_mil` > 600 solo con máximo 3; `q_mil` = 0 apagaba R8; rango de `N` — corregido (`q_mil` de 1 a 1000).
+Disputas: (i) B1–B3 del game-designer (criterio PROCEED/KILL, reconteo, aclaratoria como impuesto) como bloqueantes de Cartas — no: van al plan de prototipo, a Tiradas y Resonancia, y D-50. (ii) `V_menú` y prior por familia en Cartas — no, Resonancia (disputa ya resuelta). (iii) Recortar (game-designer) contra agregar AC (qa-lead) — por etapa: etiqueta "producción". (iv) Re-revisión acotada a los bloqueantes y F4 (creative-director) — rechazada por la revisión principal: la skill exige revisión completa, y esta pasada volvió a hallar un error en F4 fuera de lo marcado. Lo decide el diseñador.
+Receipt: sellado antes de las correcciones; describe la versión revisada, así que la versión corregida da CHANGED y pide re-revisión.
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md 3d75325511e3541cf43f314603bed2b0005347f0
+Reviewed-Content-Hash: design/registry/entities.yaml 57baf5849122b8e7da5e197f10ee09b9b1f7b428
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/tiradas.md 6605e6c6e191ffa3a37c7e3c3ed4c838b64908b1
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md 0c7c2d0fd4b9e7c7fb13beaf897b734e4c6f0cf9
+Reviewed-Content-Hash: design/decision-log.md d6c9213ca008d2c2bc263a632d48327fc3a06c8e
+Reviewed-Content-Hash: design/balance/cobertura-cartas-waite.md 455ea670272e48b1985e9d57cb2f410dfe6a253c

@@ -113,7 +113,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 
 1. Mazo y Robo — depends on: Cartas, RNG
 2. Reloj de Vela — depends on: Flujo de Jornada, Modificadores
-3. Tiradas — depends on: Taxonomía (roles), Mazo y Robo, Cartas (`acierto_posible`, solo para diseño; D-50). Traduce posiciones a roles. **Pendiente (D-50):** con Resonancia, definir la palanca del Pilar 6 ante una carta muda (relectura pagando UT) **ciega**: se ofrece sin consultar la verdad ni `acierto_posible` de Cartas, que solo sirve para diseñarla y calibrarla.
+3. Tiradas — depends on: Taxonomía (roles), Mazo y Robo, Cartas (`acierto_posible`, solo para diseño; D-50). Traduce posiciones a roles. La palanca del Pilar 6 ante una carta muda es la carta aclaratoria **ciega** (D-52), que se ofrece sin consultar la verdad ni `acierto_posible` de Cartas. Pasa a Cartas los `k` de sus tiradas como argumento del informe (`k_tiradas`, D-53); Cartas no lee Tiradas.
 4. Generador de Situaciones — depends on: Taxonomía, Cartas (pesos `p_t` del mazo activo, D-48), Arquetipos, RNG. Produce temas por **rol**, no por posición, porque la tirada se elige después.
 5. Métricas del Cliente — depends on: Arquetipos, Modificadores
 6. Gramática de Combinación — depends on: Taxonomía (familias por palo), Cartas, Tiradas (la forma de la tirada define qué cartas son vecinas)

@@ -186,7 +186,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 - **La carta no informa:** como el reparto es independiente de la verdad (R7, D-37), P(sí | carta favorable) = `ρ`. Toda la información del sí o no sale del cliente (Pilar 1).
 - **Por qué `ρ` = 0,5:** con cualquier otro valor, contestar siempre lo mismo da más del 50 %.
 - **La carta restringe:** si el jugador cree "sí" y la Respuesta solo tiene palabras desfavorables, puede elegir una palabra ambigua (Match 0 seguro, porque una ambigua nunca es desenlace de un sí o no) o contradecirse. Cómo se castiga la contradicción lo define Resonancia.
-- **El lado "sí" tiene menos cobertura:** su verdad sale de 4 temas, que la tradición usa poco. `P_pos` del desenlace en un sí o no se calcula con los pesos renormalizados dentro de la valencia, y tiene que agregarse al informe de Cartas R11.
+- **El lado "sí" tiene menos cobertura:** su verdad sale de 4 temas, que la tradición usa poco. `P_pos` del desenlace en un sí o no se calcula con los pesos renormalizados dentro de la valencia. Está en el informe de Cartas (`P_pos⁺_v`, Cartas F3; `P_cero_v(k)`, Cartas F4; D-53), y un mazo sin temas sorteables de una valencia es error de datos (`MAZO_SIN_VALENCIA`). La mezcla con `ρ` es `ρ·(1 − P_pos⁺_favorable) + (1 − ρ)·(1 − P_pos⁺_desfavorable)` en la Carta Única.
 
 **F5. Acierto posible con carta aclaratoria**
 
@@ -220,7 +220,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 |---|---|---|
 | Taxonomía de Temas y Roles | Dura | Roles, formas de pregunta, posiciones libres, el validador (R8–R13) y la valencia de cada tema (R9) |
 | Mazo y Robo | Dura, *provisoria* | Reparte una carta por posición con orientación al azar (R7) |
-| Base de Datos de Cartas | Dura | `acierto_posible` (Cartas R12), solo para diseñar y calibrar la aclaratoria, nunca en juego (D-50). Cartas lee de este catálogo los `k` de las tiradas habilitadas (`k_tiradas`) |
+| Base de Datos de Cartas | Dura | `acierto_posible` (Cartas R12), solo para diseñar y calibrar la aclaratoria, nunca en juego (D-50); `P_pos⁺_v` y `P_cero_v(k)` para el sí o no (Cartas F3, F4). La composición de la build pasa los `k` de las tiradas habilitadas al informe de Cartas como argumento (`k_tiradas`, Cartas R12, D-53); Cartas no lee este catálogo |
 | Reloj de Vela | Dura, *provisoria* | Las UT que quedan, para saber qué tiradas se ofrecen (R6) y para la advertencia de E1 |
 | Sistema de desbloqueo | Blanda, *provisoria* | Cuándo pasan a disponibles Dos Caminos, El Vínculo y Cruz Celta (States). Todavía no se sabe qué sistema es (Open Questions) |
 
@@ -250,7 +250,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | Sede mínima de la Cruz Celta | "sedes altas", a definir | Sede 4 a 8 en el Mapa B (fuera del MVP, que va de la Sede 1 a la 3) | Cuándo aparecen los asuntos graves |
 | Proporción de "sí" (`ρ`) | 0,5 | Solo 0,5: con cualquier otro valor, contestar siempre lo mismo conviene (F4). Es del Generador; está acá como referencia | Que el sí o no se deduzca del cliente y no se adivine |
 | Costo de la carta aclaratoria | 5 UT | 3 a 9, siempre con Carta Única + aclaratoria < Tres Tiempos (regla del validador, R12) | Cuánto cuesta rescatar una carta muda (F5) |
-| Aclaratorias por tirada | 1 | 1 a 2 | Cuánta palanca del Pilar 6 hay por cliente |
+| Aclaratorias por tirada | 1 | 1 a 2. Las cifras de Cartas F4 suponen 1; con 2 se recalculan | Cuánta palanca del Pilar 6 hay por cliente |
 
 El bono por tirada esperada no está acá: lo define Resonancia (R8). El umbral de la advertencia de E1 tampoco es perilla, porque sale del costo de la tirada más barata que se ofrece.
 
@@ -351,7 +351,6 @@ Convenciones de prueba:
 | **Requisito de F2:** Resonancia mide en proporción a las posiciones comparables (`k`), no con un umbral fijo; si no, la Carta Única queda casi imposible de aprobar (72,6 % sin acierto posible). ¿El sí o no del jugador cuenta como un acierto propio? | GDD de Resonancia | Al diseñar Resonancia |
 | Cuánto vale `B_tirada` y cómo pesa justificar otra tirada (§5.4). ¿Las posiciones libres pueden contradecir? | GDD de Resonancia | Al diseñar Resonancia |
 | Contratos de R10 y E3: el sorteo del sí o no (`ρ` = 0,5, desenlace dentro de la valencia) y las formas solo con tirada disponible | GDD del Generador | Al diseñar el Generador |
-| `P_pos` del desenlace en un sí o no, con pesos renormalizados dentro de la valencia: sumarlo al informe de Cartas R11 | GDD de Cartas | Revisión de Cartas |
 | Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD del sistema de desbloqueo (Fama o Trastienda) | Antes del Vertical Slice |
 | Qué pasa con un cliente al que no se le puede ofrecer ninguna tirada (E1) | GDD de Fila y Mirilla | Al diseñar Fila y Mirilla |
 | ¿El estatus del cliente (§5.4, "lo que puede pagar") limita qué tiradas se le ofrecen? | GDD de Arquetipos, economía | Al diseñar Arquetipos |
