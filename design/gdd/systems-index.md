@@ -35,7 +35,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 | 6 | Flujo de Jornada (inferred) | Core | MVP | Not Started | — | — |
 | 7 | Mazo y Robo | Gameplay | MVP | Not Started | — | Base de Datos de Cartas, RNG con Semilla |
 | 8 | Reloj de Vela | Gameplay | MVP | Not Started | — | Flujo de Jornada, Modificadores |
-| 9 | Tiradas | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Mazo y Robo |
+| 9 | Tiradas | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Mazo y Robo, Base de Datos de Cartas |
 | 10 | Generador de Situaciones | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Arquetipos y Pieles de Mapa, RNG con Semilla |
 | 11 | Métricas del Cliente | Gameplay | MVP | Not Started | — | Arquetipos y Pieles de Mapa, Modificadores |
 | 12 | Gramática de Combinación | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Tiradas |
@@ -44,7 +44,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 | 15 | Inspección y Tells | Gameplay | MVP | Not Started | — | Generador de Situaciones, Métricas del Cliente, Reloj de Vela, Textos por Plantillas |
 | 16 | Preguntas Capciosas | Gameplay | MVP | Not Started | — | Generador de Situaciones, Métricas del Cliente, Inspección y Tells, Reloj de Vela, Textos por Plantillas |
 | 17 | Interpretación y Sentencia | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Tiradas, Base de Datos de Cartas, Textos por Plantillas |
-| 18 | Resonancia y Resolución | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Generador de Situaciones, Tiradas, Gramática de Combinación, Interpretación y Sentencia, Métricas del Cliente |
+| 18 | Resonancia y Resolución | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Generador de Situaciones, Tiradas, Gramática de Combinación, Interpretación y Sentencia, Métricas del Cliente |
 | 19 | Prestidigitación | Gameplay | MVP | Not Started | — | Mazo y Robo, Tiradas, Métricas del Cliente, Reloj de Vela |
 | 20 | Economía de Sesión y Cierre de Caja | Economy | MVP | Not Started | — | Resonancia y Resolución, Arquetipos y Pieles de Mapa, Modificadores |
 | 21 | Fama, Reputación y Ascenso de Sede | Progression | MVP | Not Started | — | Resonancia y Resolución, Economía de Sesión y Cierre de Caja |
@@ -113,7 +113,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 
 1. Mazo y Robo — depends on: Cartas, RNG
 2. Reloj de Vela — depends on: Flujo de Jornada, Modificadores
-3. Tiradas — depends on: Taxonomía (roles), Mazo y Robo. Traduce posiciones a roles.
+3. Tiradas — depends on: Taxonomía (roles), Mazo y Robo, Cartas (`acierto_posible`, solo para diseño; D-50). Traduce posiciones a roles. **Pendiente (D-50):** con Resonancia, definir la palanca del Pilar 6 ante una carta muda (relectura pagando UT) **ciega**: se ofrece sin consultar la verdad ni `acierto_posible` de Cartas, que solo sirve para diseñarla y calibrarla.
 4. Generador de Situaciones — depends on: Taxonomía, Cartas (pesos `p_t` del mazo activo, D-48), Arquetipos, RNG. Produce temas por **rol**, no por posición, porque la tirada se elige después.
 5. Métricas del Cliente — depends on: Arquetipos, Modificadores
 6. Gramática de Combinación — depends on: Taxonomía (familias por palo), Cartas, Tiradas (la forma de la tirada define qué cartas son vecinas)
@@ -126,7 +126,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 2. Preguntas Capciosas — depends on: Generador, Métricas, Tells, Reloj, Textos
 3. Interpretación y Sentencia — depends on: Taxonomía (tema de cada palabra clave), Tiradas, Cartas, Textos
 4. Prestidigitación — depends on: Mazo, Tiradas, Métricas, Reloj
-5. Resonancia y Resolución — depends on: Taxonomía (regla de comparación), Generador, Tiradas, Gramática, Interpretación, Métricas
+5. Resonancia y Resolución — depends on: Taxonomía (regla de comparación), Cartas (`acierto_posible`, solo para diseño; D-50), Generador, Tiradas, Gramática, Interpretación, Métricas **Pendiente (D-50):** la palanca del Pilar 6 ante una carta muda, ciega (ver Tiradas).
 6. Economía de Sesión y Cierre de Caja — depends on: Resonancia, Arquetipos, Modificadores
 7. Fama, Reputación y Ascenso de Sede — depends on: Resonancia, Economía. Se calcula **en el cierre nocturno**.
 8. Fila y Mirilla — depends on: Generador, Métricas, Reloj, Fama. Lee la Fama **al empezar el día**.

@@ -50,3 +50,28 @@ Findings:
 - [ADVISORY] Player Fantasy ausente — sin cambio.
 Disputas: G3 (palanca del Pilar 6 como bloqueante de Cartas) — creative-director la asignó a Tiradas/Resonancia; Cartas solo expone `acierto_posible`.
 Receipt: sin sello a propósito. El GDD se corrigió después de esta revisión, y un sello de la versión corregida haría pasar el documento nuevo por el que falló.
+
+## Review — 2026-10-24 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, qa-lead, creative-director (senior)
+Blocking items: 6 | Recommended: 25
+Summary: Re-revisión full. Dato nuevo, verificado contra Project Gutenberg #43548: el conteo de D-48 omitió Waite III §4, que da significados adicionales a las 56 menores; el Dos de Copas invertida tiene "Passion", así que el caso `debilitada` era falso y las cifras de D-48 son pesimistas. El esqueleto (sorteo proporcional, R6, piso F2) se mantiene; fallaban la política de fuente, una definición de acierto que mezclaba claras y forzadas, el peso sin tope de las forzadas y una palanca del Pilar 6 que podía filtrar la verdad.
+Prior verdict resolved: Yes — los 8 bloqueantes de la revisión full anterior siguen corregidos; esta revisión encontró problemas nuevos.
+Findings:
+- [BLOCKING] R4/E2/Formulas: Waite III §4 no contado — corregido (D-50: cuenta con prioridad de §2/§3; cifras rotuladas previas a §4; reconteo como bloqueante de datos).
+- [BLOCKING] R4/E2: `debilitada` es un significado inventado y sin caso real — corregido (eliminada; orientación sin fuente = error de R4; AC-24 reescrito).
+- [BLOCKING] Formulas F3/F4: acierto sobre claras contra `p_f` con forzadas — corregido (`P_pos⁺`, `P_fallo_f`, `P_cero` sobre `c_f⁺`; marca de progresión por par con `ε_prog`).
+- [BLOCKING] Formulas F1: una clara habilitaba todo el peso forzado — corregido (tope `k_forz`, AC-18k).
+- [BLOCKING] R12/E7: `acierto_posible` podía filtrar la verdad en juego — corregido (solo diseño y calibración; relectura ciega; dependencia Dura; pendiente en systems-index).
+- [BLOCKING] AC: sin AC de comparación contra el oráculo y sin config fija del fixture — corregido (AC-04f, `config_prueba`, `atribuciones_gd_prueba`, reparto del fixture).
+- [RECOMMENDED] F4: "sin reponer < 0,01" falso (0,013) — corregido.
+- [RECOMMENDED] F4: independencia optimista y Destino oculto en el promedio — corregido (`P_cero_corr`, `P_cero_f`; Destino 0,58–0,67).
+- [RECOMMENDED] F5: `V_prior` no comparable entre mazos — corregido (`max p_t`, `T_ef`).
+- [RECOMMENDED] F2: doble fuente `Q_min`/`q_mil` — corregido (solo `q_mil` entero).
+- [RECOMMENDED] E5/E9/R11: `P_fallo_f` con `p_f` = 0, temas trampa — corregido.
+- [RECOMMENDED] Generador: contrato sin regla para temas con `p_t` = 0 — corregido.
+- [RECOMMENDED] AC-03, 04e, 05e, 06/12, 09d, 10, 11, 11b, 13, 15a/c/e, 17, 18a–l, 20, 21, 22, 23 — aislamiento, sujetos, tolerancias, procedimiento de AC-11 para una persona — corregido.
+- [ADVISORY] Player Fantasy ausente — sin cambio.
+Disputas: (i) fijar ya `P_fallo_max` o un umbral de `P_cero` — el creative-director lo rechazó (el reconteo mueve las cifras; D-49 lo deja al prototipo). (ii) AC de gate del Pilar 6 en Cartas — rechazado; la dependencia pasa a Dura y el requisito va a Tiradas/Resonancia. (iii) §4 no invalida la decisión D-48, solo sus números. (iv) `debilitada` eliminada, sin oposición.
+Receipt: sin sello a propósito. El GDD se corrigió después de esta revisión, y un sello de la versión corregida haría pasar el documento nuevo por el que falló.

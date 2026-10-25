@@ -1,5 +1,7 @@
 > **Evidencia de D-48.** Conteo hecho el 2026-10-24, en una sola lectura (diseñador más IA). Antes de cargar los datos hace falta una segunda lectura independiente (Open Questions del GDD de Cartas). La primera parte usa la banda de D-47, que ya no rige.
 
+> **Incompleto (D-50, 2026-10-24).** Este conteo usó solo Waite III §2 y §3. No incluye III §4 (*Some Additional Meanings of the Lesser Arcana*, p. ej. Dos de Copas invertida: *"Passion"*), que da un significado derecho y uno invertido más a cada una de las 56 menores. Sus cifras son pesimistas para los Menores y hay que rehacerlo por carta, con los 23 temas y con §4 (Open Questions del GDD de Cartas), antes de cargar los datos y antes del prototipo.
+
 # Conteo de cobertura: 22 Mayores + 14 Copas contra Waite (1910)
 
 Fuente: Waite, *The Pictorial Key to the Tarot* (1910). Los Mayores salen de la Parte III §3 y las Copas de la Parte III §2. El texto se tomó de la reimpresión de De Laurence (1918), Project Gutenberg #43548. Waite no da significado invertido para el Dos de Copas en §2, así que el mazo tiene 71 orientaciones con texto, no 72.
