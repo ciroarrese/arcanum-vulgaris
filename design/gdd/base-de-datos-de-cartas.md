@@ -151,7 +151,7 @@ Un **acierto de familia** es que la carta, en la orientación que salió, tenga 
 | `k_forz` | int | 0 a 3 | data file | Tope de forzadas que suman peso, por cada orientación clara del tema (Tuning Knobs) |
 | `q_mil` | int | 0 a 1000 | data file | Piso de `q_f` en milésimos (hoy 100, o sea 10 %). Es el único valor guardado: no existe un `Q_min` decimal |
 | `k` | int | 1 a 10 | Tiradas | Posiciones **comparables** de una tirada: con rol habilitado y no libres (Taxonomía R9, R11). Carta Única 1, Tres Tiempos 3 |
-| `k_tiradas` | lista de int | valores de `k` | data file | Los `k` de las tiradas habilitadas en la build, para los que el informe calcula F4 (hoy 1 y 3). Provisorio: lo reemplaza el catálogo de Tiradas cuando exista |
+| `k_tiradas` | lista de int | valores de `k` | data file | Los `k` de las tiradas habilitadas en la build, para los que el informe calcula F4 (hoy 1 y 3). Sale del catálogo de Tiradas (Tiradas F1): las tiradas que se ofrecen en la build, con sus posiciones comparables |
 | `ε_prog` | float | 0 a 0,05 | data file | Margen de la marca de progresión, en `P_pos⁺` (F4); hoy 0,005 |
 | `P_fallo_max`, `V_prior_max` | float | 0 a 1 | data file | Umbrales de las marcas del informe (F3, F5); sin fijar hasta el prototipo |
 
@@ -274,7 +274,7 @@ Supuestos: la orientación sale 50/50 y la carta es uniforme dentro del mazo.
 | `q_mil` (piso de `q_f` por familia, en milésimos) | 100 (10 %) | 50 a 110 con los datos contados. Destino en Mayores + Oros (9 de 72, 125 milésimos) pasa con 120 por 5 milésimos y falla desde 126, con un conteo de una sola lectura previo a III §4. Entero de 0 a 1000; fuera de eso es error de configuración (F2) | Que ninguna familia desaparezca de un mazo (F2) |
 | `w_forz` (peso de una forzada en F1) | 0,5 | 0 a 1. Con 0 las forzadas no generan verdades; con 1 pesan como claras y el mazo "dice" temas que la tradición no dice con claridad. El prototipo compara `P_pos⁺`, `P_cero` y `V_prior` con 0, 0,5 y 1 | Distribución de verdades, `V_prior` |
 | `k_forz` (tope de forzadas por clara en F1) | 1 | 0 a 3. Con 0 las forzadas no pesan; con más de 3, un tema casi todo forzado vuelve a dominar el sorteo | Distribución de verdades |
-| `k_tiradas` (posiciones comparables para F4) | 1 y 3 | Los `k` de las tiradas habilitadas en la build. Provisorio hasta el GDD de Tiradas, que lo deriva de sus datos | Qué cifras de F4 muestra el informe |
+| `k_tiradas` (posiciones comparables para F4) | 1 y 3 | Los `k` de las tiradas habilitadas en la build. Se deriva del catálogo de Tiradas (Tiradas F1); la configuración solo lo fija en los fixtures | Qué cifras de F4 muestra el informe |
 | `ε_prog` (margen de la marca de progresión, en `P_pos⁺`) | 0,005 | 0 a 0,02. Con el conteo actual, de una sola lectura, cualquier valor de este rango queda por debajo del ruido (F4); recalibrar con el reconteo | Solo la marca de progresión del informe (F4) |
 | `P_fallo_max` | sin fijar | Lo fija el prototipo | Solo la marca por familia del informe (F3) |
 | `V_prior_max` | sin fijar | Lo fija el prototipo | Solo la marca del informe (F5) |

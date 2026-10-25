@@ -93,3 +93,6 @@ No es una revisión. Al contar las 78 cartas contra Waite (1910) para el GDD de 
 
 ## Nota — 2026-10-24 — Cambio fuera de revisión (D-49)
 No es una revisión. La revisión full de Cartas amplió R13: `validar_catalogo` recibe además `config`, `orientaciones_con_una` y `atribuciones_gd` (R12 de Cartas), y se agrega el formato de sujeto de un mazo sin familia (`MAZO_SIN_VERDADES`). Sigue en In Review.
+
+## Nota — 2026-10-25 — Cambio fuera de revisión (D-51)
+No es una revisión. El GDD de Tiradas agregó la valencia de cada tema (favorable / desfavorable / ambigua) para la pregunta de sí o no: tabla en R1, campo en el esquema, `CAMPO_INVALIDO` y AC-35d/e. Se sacaron las marcas "provisorio hasta el GDD de Tiradas" de `FORMA_INEXISTENTE`, `POSICION_AMBIGUA` y `TIRADA_SIN_COMPARABLES`. Sigue en In Review.

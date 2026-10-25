@@ -5,7 +5,7 @@
 > **Last Updated**: 2026-10-24
 > **Last Verified**: 2026-10-23
 > **Implements Pillar**: Regla Cero, Pilar 3 (Memoria Pura), Pilar 6 (No hay Carta Mala)
-> **Creative Director Review (CD-GDD-ALIGN)**: `/design-review` full del 2026-10-23 (tercera pasada), NEEDS REVISION; revisado el mismo día (D-44); `/design-review` lean del 2026-10-23 (cuarta pasada), NEEDS REVISION, corregida (D-45); `/design-review` lean del 2026-10-23 (quinta pasada), APPROVED con 8 recomendados, 7 aplicados (D-46); R13 ampliado por el GDD de Cartas (D-47) y 3 temas de resultado agregados (D-48), pendiente de re-revisión
+> **Creative Director Review (CD-GDD-ALIGN)**: `/design-review` full del 2026-10-23 (tercera pasada), NEEDS REVISION; revisado el mismo día (D-44); `/design-review` lean del 2026-10-23 (cuarta pasada), NEEDS REVISION, corregida (D-45); `/design-review` lean del 2026-10-23 (quinta pasada), APPROVED con 8 recomendados, 7 aplicados (D-46); R13 ampliado por el GDD de Cartas (D-47) y 3 temas de resultado agregados (D-48); valencia por tema (D-51); pendiente de re-revisión
 
 ## Summary
 
@@ -54,6 +54,14 @@ Sin este vocabulario, cada sistema tendría su propio lenguaje. El Generador ten
    Son 23 temas e incluyen los diez de ejemplo del GDD §3.2. La frontera entre Conflicto y Destino es una sola, y es el criterio de D-42: lo que el cliente controla o hace va en Conflicto, y lo que le pasa va en Destino. Por eso *secreto* va en Conflicto (el cliente lo esconde, el Doble Fondo) y *enfermedad* va en Destino (D-43). *Trabajo* (empleo, despido, cierre de fábrica) completa Bienes.
 
    **Temas de resultado (D-48).** La tradición de 1909 describe tanto el problema como su resolución, y contadas las 78 cartas, muchas orientaciones hablan de resultados que no tenían tema. Por eso se suman *alegría* (contento, felicidad, festejo), *éxito* (triunfo, victoria, logro; *fama* queda para la reputación) y *cambio* (noticias, mudanza, viaje, renovación). *Cambio* va en Destino por D-42: es lo que le llega al cliente. *Culpa* abarca también la vergüenza y la confesión, porque la tradición casi no usa *guilt* (D-48).
+
+   **Valencia (D-51).** Cada tema base tiene una valencia, que usa la pregunta de sí o no (Tiradas R9–R11). Los temas de mapa toman la de su equivalente, igual que la familia.
+
+   | Valencia | Temas |
+   |---|---|
+   | Favorable | amor, alegría, fortuna, éxito |
+   | Desfavorable | culpa, duelo, deuda, traición, violencia, engaño, muerte, locura, enfermedad |
+   | Ambigua | deseo, hogar, trabajo, ley, secreto, poder, rivalidad, fama, riesgo, cambio |
 
    **Regla Cero aplicada a los temas:** un tema describe **la situación del cliente, nunca una fuerza** que actúa sobre él. *Muerte* es que alguien murió o va a morir, no la Muerte; Destino es lo que le pasa al cliente sin que lo controle, no un orden cósmico. Todo nombre visible, glosario y texto que use un tema respeta esta regla.
 2. Cada tema pertenece a **exactamente una familia**: en los datos, la familia es un campo único del tema. Una carta puede llevar temas de cualquier familia: un Cinco de Copas puede hablar de *deuda*.
@@ -144,15 +152,15 @@ Sin este vocabulario, cada sistema tendría su propio lenguaje. El Generador ten
     | `FAMILIA_EXTRA` | R1: el catálogo declara una familia que no es una de las 5 |
     | `TEMA_SIN_FAMILIA`, `FAMILIA_INEXISTENTE` | R2 |
     | `FAMILIA_BAJO_MINIMO` | R3 |
-    | `CAMPO_INVALIDO` | Esquema: `estado` fuera de {activo, deprecado}, `habilitado` / `habilitada` que no es sí / no, o `afinidad_por_rol` no vacío (reservado). Sujeto: el identificador |
+    | `CAMPO_INVALIDO` | Esquema: `estado` fuera de {activo, deprecado}, `valencia` fuera de {favorable, desfavorable, ambigua}, `habilitado` / `habilitada` que no es sí / no, o `afinidad_por_rol` no vacío (reservado). Sujeto: el identificador |
     | `NOMBRE_FALTANTE` | R4: falta el nombre visible de un identificador (familia, tema, tema de mapa, rol o forma) en una tabla de idioma. Se revisa en cada tabla cargada |
     | `KW_SIN_TEMA`, `KW_TEMAS_MULTIPLES`, `KW_TEMA_INEXISTENTE`, `KW_TEMA_DE_MAPA` | R7, E7 |
     | `MAPA_SIN_EQUIVALENTE`, `MAPA_EQUIV_INEXISTENTE`, `MAPA_EQUIV_ES_DE_MAPA`, `MAPA_EQUIV_DEPRECADO`, `MAPA_DECLARA_FAMILIA`, `MAPA_SOBREESCRIBE_BASE`, `MAPA_ID_AJENO` | R5, States |
     | `SIN_ROLES_HABILITADOS` | R10 |
     | `SIN_FORMAS_HABILITADAS` | R12 |
     | `ROL_INEXISTENTE` | E3: una posición de tirada nombra un rol que no está en el catálogo |
-    | `FORMA_INEXISTENTE` | R12: una tirada declara como esperada una forma de pregunta que no está en el catálogo *(provisorio hasta el GDD de Tiradas)* |
-    | `POSICION_AMBIGUA`, `TIRADA_SIN_COMPARABLES` | R9: posición con rol y `libre`, o sin ninguno; tirada sin posición con rol habilitado. Sujeto: la posición, o la tirada *(provisorios hasta el GDD de Tiradas)* |
+    | `FORMA_INEXISTENTE` | R12: una tirada declara como esperada una forma de pregunta que no está en el catálogo |
+    | `POSICION_AMBIGUA`, `TIRADA_SIN_COMPARABLES` | R9: posición con rol y `libre`, o sin ninguno; tirada sin posición con rol habilitado. Sujeto: la posición, o la tirada |
     | `ID_ELIMINADO`, `ID_REACTIVADO`, `DEPRECAR_CON_DEPENDIENTES`, `FAMILIA_CAMBIADA`, `EQUIV_CAMBIADO` | States |
 
     Si la lista no está vacía, el juego no pasa del arranque y muestra los errores (E1).
@@ -162,7 +170,7 @@ Sin este vocabulario, cada sistema tendría su propio lenguaje. El Generador ten
 | Entrada | Campos |
 |---|---|
 | Familia | `id`, `marca` (símbolo; ver Visual/Audio), `palo` (Copas / Oros / Espadas / Bastos / Arcanos Mayores, la correspondencia de R1; la usa la Gramática) |
-| Tema base | `id`, `familia`, `estado` (activo / deprecado), `afinidad_por_rol` (reservado: vacío hasta que lo defina el GDD del Generador) |
+| Tema base | `id`, `familia`, `estado` (activo / deprecado), `valencia` (favorable / desfavorable / ambigua, D-51), `afinidad_por_rol` (reservado: vacío hasta que lo defina el GDD del Generador) |
 | Tema de mapa | `id`, `equivalente`, `estado` (activo / deprecado) |
 | Rol | `id`, `habilitado` (sí / no) |
 | Forma de pregunta | `id`, `habilitada` (sí / no) |
@@ -370,6 +378,8 @@ Convenciones de prueba:
 - **AC-35a** (Esquema) — GIVEN un tema `tema.prueba` con `estado` = `pausado`, WHEN se valida, THEN la lista contiene `CAMPO_INVALIDO` con sujeto `tema.prueba`.
 - **AC-35b** (Esquema) — GIVEN un rol `rol.origen` con `habilitado` = `quizás`, WHEN se valida, THEN la lista contiene `CAMPO_INVALIDO` con sujeto `rol.origen`.
 - **AC-35c** (Esquema) — GIVEN un tema `tema.deuda` con `afinidad_por_rol` no vacío, WHEN se valida, THEN la lista contiene `CAMPO_INVALIDO` con sujeto `tema.deuda`. Control: con `afinidad_por_rol` vacío, no lo contiene.
+- **AC-35d** (Esquema, D-51) — GIVEN un tema `tema.prueba` con `valencia` = `neutra`, WHEN se valida, THEN la lista contiene `CAMPO_INVALIDO` con sujeto `tema.prueba`. Control: con `favorable`, no lo contiene.
+- **AC-35e** (R1, D-51; snapshot) — GIVEN el catálogo base, WHEN se carga, THEN cada tema tiene la valencia de la tabla de R1, y `mapa_a.hiperinflacion` toma la de su equivalente (`tema.deuda`, desfavorable).
 - **AC-29a** (R10) — GIVEN un catálogo de prueba sin roles habilitados, WHEN se valida, THEN la lista contiene `SIN_ROLES_HABILITADOS` con sujeto `catalogo`.
 - **AC-29b** (R12) — GIVEN un catálogo de prueba sin formas habilitadas, WHEN se valida, THEN la lista contiene `SIN_FORMAS_HABILITADAS` con sujeto `catalogo`.
 

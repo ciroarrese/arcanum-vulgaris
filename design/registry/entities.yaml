@@ -54,7 +54,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-10-24"
+last_updated: "2026-10-25"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -421,6 +421,78 @@ constants:
     value: 0.10
     unit: proporción de orientaciones por familia, en cada mazo alcanzable
     added: 2026-10-24
+    revised: ""
+  - name: tiradas_total
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 5
+    unit: tiradas
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_carta_unica
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 10
+    unit: UT
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_tres_tiempos
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 20
+    unit: UT
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_dos_caminos
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 30
+    unit: UT
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_vinculo
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 30
+    unit: UT
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_cruz_celta
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 45
+    unit: UT
+    added: 2026-10-25
+    revised: ""
+  - name: proporcion_si_rho
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 0.5
+    unit: proporción de respuestas verdaderas sí
+    added: 2026-10-25
+    revised: ""
+  - name: costo_ut_aclaratoria
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+    value: 5
+    unit: UT por carta aclaratoria (una por tirada)
+    added: 2026-10-25
     revised: ""
 
 # Example:
