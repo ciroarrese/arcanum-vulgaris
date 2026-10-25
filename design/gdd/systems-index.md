@@ -29,7 +29,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 |---|-------------|----------|----------|--------|------------|------------|
 | 1 | Taxonomía de Temas y Roles (inferred) | Core | MVP | In Review | [taxonomia-de-temas-y-roles.md](taxonomia-de-temas-y-roles.md) | — |
 | 2 | Modificadores (inferred) | Core | MVP | Not Started | — | — |
-| 3 | Base de Datos de Cartas | Core | MVP | In Review | [base-de-datos-de-cartas.md](base-de-datos-de-cartas.md) | Taxonomía de Temas y Roles |
+| 3 | Base de Datos de Cartas | Core | MVP | Needs Revision | [base-de-datos-de-cartas.md](base-de-datos-de-cartas.md) | Taxonomía de Temas y Roles |
 | 4 | RNG con Semilla (inferred) | Core | MVP | Not Started | — | — |
 | 5 | Arquetipos y Pieles de Mapa | Core | MVP | Not Started | — | Taxonomía de Temas y Roles |
 | 6 | Flujo de Jornada (inferred) | Core | MVP | Not Started | — | — |

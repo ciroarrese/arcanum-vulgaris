@@ -75,3 +75,28 @@ Findings:
 - [ADVISORY] Player Fantasy ausente — sin cambio.
 Disputas: (i) fijar ya `P_fallo_max` o un umbral de `P_cero` — el creative-director lo rechazó (el reconteo mueve las cifras; D-49 lo deja al prototipo). (ii) AC de gate del Pilar 6 en Cartas — rechazado; la dependencia pasa a Dura y el requisito va a Tiradas/Resonancia. (iii) §4 no invalida la decisión D-48, solo sus números. (iv) `debilitada` eliminada, sin oposición.
 Receipt: sin sello a propósito. El GDD se corrigió después de esta revisión, y un sello de la versión corregida haría pasar el documento nuevo por el que falló.
+
+## Review — 2026-10-25 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: ninguno (lean)
+Blocking items: 1 | Recommended: 5
+Summary: Cuarta pasada. Las cuentas verifican: se recalcularon a mano AC-15a/b/c/e, AC-17 y AC-18a1 a AC-18k sin diferencias. El hueco es de alcance: F4 fija el exponente 3 (Tres Tiempos), pero el MVP incluye Carta Única (GDD maestro §5.4 y MVP), con `P_cero` ≈ 0,72 de una posición. D-48 aceptó el costo del Pilar 6 midiendo solo una de las dos tiradas del MVP. Pasada lean: no sustituye una full.
+Prior verdict resolved: Yes — los 6 bloqueantes de la re-revisión full siguen corregidos; esta pasada encontró un problema nuevo.
+Findings:
+- [BLOCKING] Formulas F4/E7/Open Questions: `P_cero` solo para 3 posiciones; Carta Única (MVP, 1 posición) sin cifra ni palanca definida.
+- [RECOMMENDED] F4: `P_cero` mide acierto posible, no alcanzado; "jugada útil" del Pilar 6 sin definir.
+- [RECOMMENDED] R12: `acierto_posible` sin AC que impida su uso en el código de juego (Pilar 1).
+- [RECOMMENDED] AC-11/Open Questions: "build del MVP" y "36 cartas del MVP" no fijan el conjunto; el MVP llega a 50 cartas en la Sede 3.
+- [RECOMMENDED] Registro: `piso_familia_q_min` decimal contra `q_mil`; faltan `w_forz`, `k_forz` y `ε_prog`, y la excepción de 1.
+- [RECOMMENDED] Formulas/Tuning Knobs: cifras de F3 a F5 y rango seguro de `q_mil` sin verificar hasta el reconteo.
+- [ADVISORY] Player Fantasy ausente — sin cambio.
+- [NICE] Tuning Knobs: "en 120 pasa sin ningún margen" es inexacto; Cartas sigue fuera de `referenced_by` de los 23 temas.
+Receipt: sellado antes de las correcciones; describe la versión revisada, así que la versión corregida da CHANGED y pide re-revisión.
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md 90adb72567d630b9de82c57e938375dd179c5c61
+Reviewed-Content-Hash: design/registry/entities.yaml 878b0e1995978e64f764eadcdb004407ad36e93b
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 3a31f95439cf6c6362d10b730c01a02d49d04f3b
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+Reviewed-Content-Hash: design/gdd/systems-index.md 2770c597920c756e8d1b26331f8dd67e68428ba0
