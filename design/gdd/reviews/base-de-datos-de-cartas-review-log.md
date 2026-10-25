@@ -100,3 +100,35 @@ Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 3a31f95439cf6c63
 Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
 Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
 Reviewed-Content-Hash: design/gdd/systems-index.md 2770c597920c756e8d1b26331f8dd67e68428ba0
+
+## Review — 2026-10-25 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, qa-lead, creative-director (senior)
+Blocking items: 4 | Recommended: 8
+Summary: Quinta pasada. Dentro del dominio las cuentas verifican, pero la configuración aceptaba valores que rompen F1 (`w_forz` < 0 da `p_t` < 0), las salidas con `T_m` = 0 u `O` = 0 eran números falsos, F4 afirmaba dos cotas falsas ("basta un k" para `P_cero_corr`, "el real queda entre los dos") y R11 y E9 definían distinto el tema trampa. El creative-director dejó Carta Única, AC-11, `V_prior`/`V_menú` y el scope del prototipo como no bloqueantes; queda escrita la cota `P_cero(1)` ≥ ~0,45 aun con III §4.
+Prior verdict resolved: Yes — el bloqueante de la lean (F4 solo Tres Tiempos) sigue corregido; esta pasada encontró problemas nuevos.
+Findings:
+- [BLOCKING] Tuning Knobs/F1: sin dominio para `w_forz`, `k_forz`, `k_tiradas`, `ε_prog`, umbrales y mínimo/máximo de palabras clave — corregido (error de configuración, el validador no sigue; AC-27).
+- [BLOCKING] Formulas/AC-22: salidas con `T_m` = 0 u `O` = 0 sin guarda — corregido ("Salidas vacías"; AC-22 ampliado).
+- [BLOCKING] F4: "basta un k" y "el real queda entre los dos" falsos — corregido (progresión sobre `P_pos⁺` con tolerancia 1e-9; contraejemplo A/B; `P_cero_corr` es máximo con marginales iguales; AC-18f reescrito).
+- [BLOCKING] R11/E9: dos definiciones de tema trampa — corregido (solo forzadas; "deprecados presentes" aparte; AC-18l).
+- [RECOMMENDED] F4/Open Questions: el reconteo no resuelve Carta Única — corregido (cota ≥ ~0,45; k = 1 criterio de salida del prototipo; tasa de relectura).
+- [RECOMMENDED] AC-11: sin pass/fail de artefactos — corregido (AC-11c; (a) provisorio; `orientaciones_con_una` refutable es falla).
+- [RECOMMENDED] F4/Tuning Knobs: marca del mazo de 4 palos dentro del ruido — corregido (no concluyente hasta el reconteo).
+- [RECOMMENDED] Scope: oráculo, AC-04c, 04f, 20 y 26 fuera del prototipo — corregido; `V_menú` a Open Questions de Resonancia.
+- [RECOMMENDED] Informe: distribución de familias generada y tope de forzadas por mazo — sin cambio.
+- [RECOMMENDED] AC: evidencia de AC-04c/19/20/26, AC de `chequear_informe` y de pureza, mutaciones múltiples sin declarar (09a, 05b, 05c, 15d, 18j), l.315 contra l.320 — sin cambio.
+- [RECOMMENDED] Player Fantasy corta atada a "no hay carta mala" — sin cambio.
+- [NICE] UI l.294 "3 a 6" — corregido (4 a 6). Pendientes: progresión solo contra el Aprendiz, igualdades/`T_m` = 1 en AC-18h, E6, casos de R3, tolerancias de AC-18b, numeración AC-11/11b.
+Disputas: (i) Carta Única bloqueante (game-designer) — no, va a Tiradas/Resonancia con la cota escrita. (ii) AC-11 bloqueante (qa-lead) — recomendado, se aplicó la parte de artefactos. (iii) Normalizar `V_prior` (systems-designer) — no; se mantiene la tasa absoluta (cuarta revisión). (iv) Catálogo de prototipo separado (game-designer) — no; se etiquetan los AC no requeridos. (v) Re-revisión lean solo del delta (creative-director) — rechazada: la skill exige revisión completa, y esta pasada halló afirmaciones falsas en F4 tras cuatro revisiones.
+Receipt: sellado antes de las correcciones (y antes de pasar systems-index a In Review); describe la versión revisada, así que la versión corregida da CHANGED y pide re-revisión.
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md 4a65f3b5c2a9bd44eca4eb0e73cb6b2061c46bd2
+Reviewed-Content-Hash: design/registry/entities.yaml 878b0e1995978e64f764eadcdb004407ad36e93b
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 3a31f95439cf6c6362d10b730c01a02d49d04f3b
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+Reviewed-Content-Hash: design/gdd/systems-index.md e921556719bf9fd342c6f05c566f0df1d1fcd3d3
+Reviewed-Content-Hash: design/balance/cobertura-cartas-waite.md 455ea670272e48b1985e9d57cb2f410dfe6a253c
+Reviewed-Content-Hash: design/decision-log.md a361d1b6720a59ae08e3dce9b3098a01f7492997
