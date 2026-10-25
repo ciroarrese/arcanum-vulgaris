@@ -169,3 +169,33 @@ Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5d
 Reviewed-Content-Hash: design/gdd/systems-index.md 0c7c2d0fd4b9e7c7fb13beaf897b734e4c6f0cf9
 Reviewed-Content-Hash: design/decision-log.md d6c9213ca008d2c2bc263a632d48327fc3a06c8e
 Reviewed-Content-Hash: design/balance/cobertura-cartas-waite.md 455ea670272e48b1985e9d57cb2f410dfe6a253c
+
+## Review — 2026-10-25 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, qa-lead, creative-director (senior)
+Blocking items: 4 | Recommended: 24
+Summary: Séptima pasada. La aritmética de los AC cierra (script) y F1, F2, la convexidad de F4 y E1–E9 se sostienen. Los cuatro bloqueantes son locales: R12 decía que `pesos_sorteo` era la única función de juego mientras R10 valida al arrancar; AC-27b `[1,5]` ambiguo por la coma decimal; AC-11 sin clave de unión entre la asignación ciega y el catálogo; y las cifras de Carta Única calculadas sin valencia para la posición del desenlace, con una cota que ignoraba *Book T* y Mathers y no valía para 78 cartas. El creative-director atribuye el ciclo de revisiones al tamaño del documento (análisis probabilístico de sistemas que no existen) y pide diff mínimo y cifras derivadas fuera de la prosa.
+Prior verdict resolved: Yes — los 8 bloqueantes de la sexta pasada siguen corregidos; esta pasada encontró problemas nuevos.
+Findings:
+- [BLOCKING] R10/R12/AC-26: `pesos_sorteo` "única" función de juego contra validación al arrancar — decisión del diseñador: la validación corre en el juego.
+- [BLOCKING] AC-27b: caso `[1,5]` legible como lista válida.
+- [BLOCKING] AC-11: pasos 1–2 sin clave de unión (`ubicacion` no identifica la palabra clave); "la traducción cambia el tema" no juzgable a ciegas — decisión: entrada por `kw_id` sin `texto_es`, traducción en un paso aparte.
+- [BLOCKING] F4/E7: titulares de Carta Única sin valencia; cota de l.222 solo Waite y solo Mayores + Copas (con 78 cartas `P_cero(1)` ≳ 0,44).
+- [RECOMMENDED] F4: brecha sin reposición es cota (≤ 0,013; con u = 2q, 0,004); dirección solo con roles iid.
+- [RECOMMENDED] F4: aclaratoria con la misma verdad es `P_cero_corr(1+a)` (diferencia ~0,002).
+- [RECOMMENDED] R12: determinismo (float64, multiplicación en vez de pow, `w_mil` entero) y firma de `pesos_sorteo`.
+- [RECOMMENDED] F3/F5: valencia casi deducible con `T_m^v` > 1; `P_exacto_catálogo` (política de mayor `p_t` por carta); garantía inversa del Generador; `k` efectivo; UT por acierto rescatado (~18 UT).
+- [RECOMMENDED] AC: AC-28 casi no falla; AC-22b vacuo con umbrales sin fijar; sujetos de mazo de prueba y de valencia sin formato R13; AC-05c/18j3/24 sin el id quitado; perilla mínimo y R2 sin AC; semilla de AC-11 elegible a posteriori; AC-18f2 sin valores para 4 palos; AC-18e sin control de u ≤ 2q; MAZO_SIN_* solo en fixture limpio; AC-08 y AC-09c fuera de las excepciones; etiquetas de prototipo; AC-21 prueba su stub.
+- [NICE] Guardas k > N y Aprendiz vacío; `n_t^a` choca con `a`; signo neto del sesgo de F4; mazo rebarajado por cliente; contrato de desconfianza con Resonancia; ancestro del oráculo; fixture de AC-23; O y N en AC-18a1; controles "sin fijar" en AC-27.
+Disputas: (i) validación en CI (creative-director) contra en el juego — el diseñador eligió en el juego, coherente con AC-25a/b de la Taxonomía. (ii) Ceguera de AC-11 — ceguera estricta, traducción en paso aparte. (iii) Criterio de impuesto en UT por acierto rescatado — va a Tiradas/D-53, no a Cartas. (iv) "Aprendiz = 1 palo" — lo decide Mazo y Robo. (v) Octava pasada lean y por delta (creative-director) — rechazada por la revisión principal: la skill exige revisión completa; las pasadas quinta y sexta hallaron errores fuera de lo marcado. Se acepta el fondo: menos prosa con números.
+Receipt: sellado antes de las correcciones; describe la versión revisada, así que la versión corregida da CHANGED y pide re-revisión.
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md 5b551f54c8d41d594dfd79800acc885f8a158398
+Reviewed-Content-Hash: design/registry/entities.yaml 57baf5849122b8e7da5e197f10ee09b9b1f7b428
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/tiradas.md c21828d3c57bf88b848a97c599137ecbe94e8b8d
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md cf596b0543f1329bf372cd349f6db0757de43178
+Reviewed-Content-Hash: design/decision-log.md 6803f41e81aa8629f50b8506a23b09abeb01b818
+Reviewed-Content-Hash: design/balance/cobertura-cartas-waite.md 455ea670272e48b1985e9d57cb2f410dfe6a253c
