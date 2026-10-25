@@ -1,7 +1,7 @@
 # Tiradas
 
-> **Status**: Designed
-> **Creative Director Review (CD-GDD-ALIGN)**: NOT ASSESSED 2026-10-25 — omitida en modo lean
+> **Status**: In Review
+> **Creative Director Review (CD-GDD-ALIGN)**: `/design-review` full del 2026-10-25 (primera pasada), NEEDS REVISION; corregida el mismo día (D-55); pendiente de re-revisión
 > **Author**: Ciro + agentes
 > **Last Updated**: 2026-10-25
 > **Last Verified**: 2026-10-24
@@ -50,7 +50,7 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
    |---|---|
    | Carta Única | Respuesta → desenlace |
    | Tres Tiempos | Pasado → origen · Presente → conflicto · Futuro → desenlace |
-   | Dos Caminos | Situación → conflicto · Camino A → camino A · Camino B → camino B · Resultado A → camino A · Resultado B → camino B |
+   | Dos Caminos | Situación → conflicto · Camino A → camino A · Camino B → camino B · Resultado A → desenlace · Resultado B → desenlace |
    | El Vínculo | Consultante → libre · El Otro → el otro · Lo que une → origen · Lo que separa → conflicto · Desenlace → desenlace |
    | Cruz Celta | 1 Lo que cubre → conflicto · 2 Lo que cruza → conflicto · 3 Corona → libre · 4 Base → origen · 5 Lo que queda atrás → origen · 6 Lo que viene → desenlace · 7 El consultante → libre · 8 El entorno → libre · 9 Esperanzas y temores → libre · 10 Resultado → desenlace |
 
@@ -65,7 +65,7 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
 
 **Elegir y repartir**
 
-5. El jugador elige la tirada **después** de ver al cliente y escuchar el motivo, y **antes** de que se repartan las cartas. Una vez repartida, no se cambia. Se usa una sola tirada por cliente.
+5. El jugador elige la tirada **después** de ver al cliente y escuchar el motivo, y **antes** de que se repartan las cartas. Elegir es gratis y se puede cambiar hasta confirmar el reparto. Al confirmar, se vuelve a verificar R6 con la vela de ese momento y se descuenta el costo de la tirada, una sola vez; si ya no alcanza, el reparto se rechaza y no se descuenta nada. Una vez repartida, no se cambia. Se usa una sola tirada por cliente.
 6. **Qué tiradas se ofrecen:** una tirada se ofrece si cumple tres condiciones:
    - está disponible en la partida;
    - todos sus roles están habilitados;
@@ -73,11 +73,11 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
 
    Si no se ofrece ninguna, el cliente no se puede leer (E2).
 7. **Reparto:** Mazo y Robo reparte una carta por posición, en el orden de la tabla de R2, cada una derecha o invertida al azar (D-09). Tiradas no decide qué cartas salen.
-8. **Tirada esperada:** cada forma de pregunta tiene una tirada esperada (R1). Si el jugador usa la esperada para la forma del motivo, se activa el bono de tirada (`B_tirada`, §5.8). Cuánto vale ese bono y cómo pesa justificar otra tirada lo define Resonancia.
+8. **Tirada esperada:** cada forma de pregunta tiene una tirada esperada (R1). Si el jugador usa la esperada para la forma del motivo, se activa el bono de tirada (`B_tirada`, §5.8). Si usa otra, no hay bono y baja la Credulidad, salvo que justifique la tirada con una buena lectura (GDD §5.4). Cuánto vale el bono, cuánto baja la Credulidad y qué cuenta como justificar lo define Resonancia (*provisorio*).
 
 **Carta aclaratoria (D-52)**
 
-8a. Después del reparto, el jugador puede pedir **una carta aclaratoria** para una posición de su elección, pagando **5 UT**. Mazo y Robo reparte una carta más, con orientación al azar, y la deja junto a la de esa posición. Al interpretar esa posición, el jugador elige la palabra clave de cualquiera de las dos cartas; la posición conserva su rol y da un solo resultado (Taxonomía R11). Es la palanca del Pilar 6 ante una carta muda que pidió Cartas (E7, D-50).
+8a. Después del reparto, el jugador puede pedir **una carta aclaratoria** para una posición de su elección, pagando **5 UT**, que se descuentan al pedirla. Mazo y Robo reparte una carta más, con orientación al azar, y la deja junto a la de esa posición. Al interpretar esa posición, el jugador elige la palabra clave de cualquiera de las dos cartas; la posición conserva su rol y da un solo resultado (Taxonomía R11). Es la palanca del Pilar 6 ante una carta muda que pidió Cartas (E7, D-50).
 8b. **Es ciega.** Se ofrece igual en cualquier posición, con rol o libre, sin consultar la verdad ni `acierto_posible` de Cartas. Si se ofreciera solo ante una carta muda, le diría al jugador algo de la verdad (Pilar 1).
 8c. **Límites:** una aclaratoria por tirada, en total; se pide antes de confirmar la lectura de esa posición, y solo si la vela tiene las 5 UT. En la Carta Única, la tirada más la aclaratoria cuestan 15 UT, menos que Tres Tiempos (20), y el validador lo exige (R12).
 8d. La aclaratoria no cambia la vecindad: la Gramática no la cuenta (*provisorio hasta el GDD de la Gramática*). Prestidigitación puede actuar sobre ella como sobre cualquier carta repartida (E6). Si el cliente desconfía de un tarotista que saca más cartas, lo define Resonancia (Open Questions).
@@ -98,10 +98,10 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
 
 **Validación**
 
-12. Las tiradas pasan por el validador del catálogo (R13 de la Taxonomía): `ROL_INEXISTENTE`, `FORMA_INEXISTENTE`, `POSICION_AMBIGUA` y `TIRADA_SIN_COMPARABLES`. Este GDD agrega dos reglas:
+12. Las tiradas pasan por el validador del catálogo (R13 de la Taxonomía): `ROL_INEXISTENTE`, `FORMA_INEXISTENTE`, `POSICION_AMBIGUA` y `TIRADA_SIN_COMPARABLES`. Este GDD agrega tres reglas:
     - una vecindad nombra solo posiciones de su tirada;
     - toda tirada tiene al menos una posición de desenlace (R11);
-    - la Carta Única cuesta menos que Tres Tiempos, y la Carta Única más la aclaratoria también (Tuning Knobs).
+    - la Carta Única cuesta menos que Tres Tiempos, y también la Carta Única más todas sus aclaratorias: `C_CU + n_acl · C_acl < C_TT`, con `n_acl` las aclaratorias por tirada (Tuning Knobs).
 
     Los códigos se fijan en las historias.
 
@@ -112,15 +112,15 @@ Las tiradas existen para desacoplar la lectura del cliente. El Generador produce
 | No disponible | Todavía no se desbloqueó (Dos Caminos, El Vínculo) o no se llegó a la sede (Cruz Celta) | Disponible, cuando se cumple su condición. Lo define el sistema de desbloqueo (Open Questions) |
 | Disponible | Se ofrece si cumple R6 | No vuelve atrás durante la partida |
 
-Durante la lectura de un cliente: **elegida → repartida → (aclarada, opcional y una sola vez) → leída**. No hay vuelta atrás (R5, R8c).
+Durante la lectura de un cliente: **elegida → repartida → (aclarada, opcional y una sola vez) → leída**. Mientras está elegida se puede cambiar sin costo; el paso a repartida cobra la tirada (R5) y no tiene vuelta atrás (R5, R8c).
 
 ### Interactions with Other Systems
 
 | Sistema | Qué recibe de Tiradas | Qué aporta o devuelve |
 |---|---|---|
-| Taxonomía | Las posiciones con su rol o `libre`; la forma esperada | Roles, formas, validador y la valencia de cada tema (R9) |
+| Taxonomía | Las posiciones con su rol o `libre`; la forma esperada | Roles, formas, validador y la valencia de cada tema (R1 de la Taxonomía) |
 | Mazo y Robo | Cuántas cartas repartir y en qué orden, y la carta aclaratoria (R8a) | Las cartas, con su orientación |
-| Reloj de Vela | El costo en UT de la tirada elegida | Las UT que quedan (R6) |
+| Reloj de Vela | El costo en UT de la tirada, al confirmar el reparto (R5), y el de la aclaratoria, al pedirla (R8a) | Las UT que quedan (R6) |
 | Gramática | La vecindad de cada tirada | Nada; la usa para las dignidades |
 | Interpretación y Sentencia | Las posiciones con su rol o libre y su nombre visible | La palabra clave elegida por posición; el sí o no del jugador |
 | Resonancia | Si la tirada fue la esperada (R8) | Nada; aplica `B_tirada` |
@@ -133,6 +133,8 @@ Durante la lectura de un cliente: **elegida → repartida → (aclarada, opciona
 ## Formulas
 
 Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayores + Copas). Son de calibración: el puntaje real y el umbral los define Resonancia. Ese `P_pos` sale del conteo de D-48, que no incluyó Waite III §4: las cifras son **pesimistas** hasta el reconteo (D-50). El reconteo no cambia los Mayores, que aportan la mayor parte de `P_pos`.
+
+**Sin valencia.** Las cifras de F2, F3 y F5 usan el `P_pos` de todo el mazo. En la forma esperada de la Carta Única (sí o no) el desenlace sale solo de los temas de una valencia (R10, F4), así que para la Carta Única son referencias, no la cifra del juego. Las cifras con valencia (`P_pos⁺_v`, `P_cero_v`, Cartas F4) las necesita el prototipo y salen del reconteo (D-50, D-54), en `design/balance/cifras-cartas.md`; hasta tenerlas, ninguna conclusión de diseño se apoya en las cifras de la Carta Única de esta sección.
 
 **F1. Posiciones comparables**
 
@@ -156,8 +158,8 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | `P_alguno` | float | 0 a 1 | calculated | Probabilidad de que al menos una posición tenga acierto posible |
 
 - **Valores:** con k = 1, 3, 4, 5 y 6 da **0,274 / 0,617 / 0,722 / 0,798 / 0,854**.
-- **La Carta Única queda sin ningún acierto posible el 72,6 % de las veces.** Por eso Resonancia no puede usar un umbral fijo: tiene que medir en proporción a `k` (Open Questions).
-- **Independencia:** es razonable aunque se repitan roles (Cruz Celta). Contando que dos posiciones del mismo rol comparten la verdad, la probabilidad de fallar en las dos da 0,527, contra 0,525 si fueran independientes. Repetir un rol sí aumenta la varianza: acertar el conflicto paga dos veces y errarlo cuesta dos veces.
+- **Con `k` = 1 la mayoría de las tiradas no tiene ningún acierto posible** (sin valencia, 72,6 %). Por eso Resonancia no puede usar un umbral fijo: tiene que medir en proporción a `k` (Open Questions).
+- **Independencia:** es razonable aunque se repitan roles (Cruz Celta, Dos Caminos). Contando que dos posiciones del mismo rol comparten la verdad, la probabilidad de fallar en las dos da 0,529, contra 0,527 si fueran independientes (`P_cero_corr(2)`, Copas, `design/balance/cifras-cartas.md`). Repetir un rol sí aumenta la varianza: acertar el conflicto paga dos veces y errarlo cuesta dos veces.
 
 **F3. Rendimiento por UT** (calibración)
 
@@ -170,18 +172,19 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 | `C` | int | 10 a 45 | R1 | Costo de la tirada en UT |
 | `η` | float | ≥ 0 | calculated | Match esperado (2/1/0, ilustrativo) por UT |
 
-- **Con s = 1:** Carta Única 0,036 · Tres Tiempos 0,055 · Dos Caminos 0,061 · El Vínculo 0,049 · Cruz Celta 0,049. No incluye dignidades ni el bono de tirada.
-- **Lectura:** la Carta Única es la más cara por punto, y la Cruz Celta rinde menos por UT que Tres Tiempos. Las tiradas grandes se justifican por la tarifa del cliente, no por eficiencia.
+- **Con s = 1:** Carta Única 0,036 · Tres Tiempos 0,055 · Dos Caminos 0,061 · El Vínculo 0,049 · Cruz Celta 0,049. No incluye dignidades ni el bono de tirada. Dos Caminos y El Vínculo usan el `k` con todos los roles, que no existe en el MVP (F1).
+- **Lectura:** mide Match por UT, no dinero por UT. Las preguntas cuestan lo mismo con cualquier tirada, y hoy la tarifa no depende de la tirada (`design/balance/economia-mvp.md` §1), así que la Cruz Celta, que rinde menos por UT que Tres Tiempos, todavía no tiene con qué justificarse. Si la tarifa debe crecer con la tirada es una pregunta abierta (Open Questions).
 - `P_exacto` es una hipótesis; se reemplaza por el informe del validador (Cartas R11).
 
 **F4. Acertar el sí o no**
 
-`P_acierto_sn = 0,5 + Δ_deducción`
+`P_acierto_sn = max(ρ, 1 − ρ) + Δ_deducción`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| `ρ` | float | 0,5 | data file (Generador) | Proporción de respuestas verdaderas "sí" (Tuning Knobs) |
-| `Δ_deducción` | float | 0 a 0,5 | Detección | Lo que suma deducir al cliente (tells, preguntas) |
+| `ρ` | float | 0 a 1; vale 0,5 | data file (Generador) | Proporción de respuestas verdaderas "sí" (Tuning Knobs) |
+| `Δ_deducción` | float | 0 a 1 − max(ρ, 1 − ρ) | Detección | Lo que suma deducir al cliente (tells, preguntas) |
+| `P_acierto_sn` | float | max(ρ, 1 − ρ) a 1 | calculated | Probabilidad de que el jugador afirme la respuesta verdadera. `max(ρ, 1 − ρ)` es contestar siempre lo más frecuente; con ρ = 0,5 da `0,5 + Δ_deducción` |
 
 - **La carta no informa:** como el reparto es independiente de la verdad (R7, D-37), P(sí | carta favorable) = `ρ`. Toda la información del sí o no sale del cliente (Pilar 1).
 - **Por qué `ρ` = 0,5:** con cualquier otro valor, contestar siempre lo mismo da más del 50 %.
@@ -205,7 +208,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 1. **A la vela no le alcanza para ninguna tirada.** No se ofrece ninguna (R6) y el cliente no se puede leer. Qué pasa con ese cliente (si se va o si abre una Deuda) lo define Fila y Mirilla. **Advertencia:** si una acción (una pregunta, un truco) va a dejar la vela por debajo del costo de la tirada más barata que se ofrece, el juego avisa antes. La acción igual se puede hacer.
 2. **No se ofrece ninguna tirada por otra causa.** En el MVP no puede pasar: la Carta Única está disponible desde el inicio y su rol (desenlace) siempre está habilitado. Si pasara, se trata igual que el caso 1.
 3. **Una forma de pregunta cuya tirada esperada no está disponible.** El Generador solo emite formas habilitadas cuya tirada esperada esté disponible en la partida, para que el bono de tirada siempre se pueda alcanzar. Esto es un contrato con el Generador (D-51). En el MVP no cambia nada, porque *sí o no* y *situación general* tienen sus tiradas desde el inicio.
-4. **El jugador usa otra tirada que la esperada.** Está permitido, sin bono de tirada (R8). Si el motivo es de sí o no y usa Tres Tiempos, igual afirma sí o no (R11) y se comparan las 3 posiciones.
+4. **El jugador usa otra tirada que la esperada.** Está permitido, sin bono de tirada y con la baja de Credulidad de R8, salvo que la justifique. Si el motivo es de sí o no y usa Tres Tiempos, igual afirma sí o no (R11) y se comparan las 3 posiciones.
 5. **Una posición pregunta un rol que la situación no tiene.** Da SIN_COMPARACION (E3 de la Taxonomía). En el MVP no se ofrecen las tiradas con roles deshabilitados (R3).
 6. **Prestidigitación cambia o invierte una carta ya repartida.** La posición y su rol no cambian: se compara la carta nueva, en su orientación nueva.
 7. **Dos posiciones con el mismo rol** (Cruz Celta, Dos Caminos). Cada una da su propio resultado contra la misma verdad. Cómo se combinan lo define Resonancia (E4 de la Taxonomía).
@@ -218,7 +221,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 
 | Sistema | Tipo | Qué usa |
 |---|---|---|
-| Taxonomía de Temas y Roles | Dura | Roles, formas de pregunta, posiciones libres, el validador (R8–R13) y la valencia de cada tema (R9) |
+| Taxonomía de Temas y Roles | Dura | Roles, formas de pregunta, posiciones libres, el validador (R8–R13) y la valencia de cada tema (R1) |
 | Mazo y Robo | Dura, *provisoria* | Reparte una carta por posición con orientación al azar (R7) |
 | Base de Datos de Cartas | Dura | `acierto_posible` (Cartas R12), solo para diseñar y calibrar la aclaratoria, nunca en juego (D-50); `P_pos⁺_v` y `P_cero_v(k)` para el sí o no (Cartas F3, F4). La composición de la build pasa los `k` de las tiradas habilitadas al informe de Cartas como argumento (`k_tiradas`, Cartas R12, D-53); Cartas no lee este catálogo |
 | Reloj de Vela | Dura, *provisoria* | Las UT que quedan, para saber qué tiradas se ofrecen (R6) y para la advertencia de E1 |
@@ -237,7 +240,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 
 **Bidireccionalidad:**
 
-- La Taxonomía ya nombra a Tiradas entre sus dependientes e incorporó la valencia (R9).
+- La Taxonomía ya nombra a Tiradas entre sus dependientes e incorporó la valencia (su R1).
 - Los demás no tienen GDD; cada uno tiene que nombrar a Tiradas cuando se escriba.
 - `systems-index.md` ya lista Reloj de Vela entre las dependencias de Tiradas, y Tiradas entre las del Generador.
 
@@ -245,12 +248,12 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 
 | Perilla | Valor actual | Rango seguro | Qué afecta |
 |---|---|---|---|
-| Costo en UT por tirada | Carta Única 10 · Tres Tiempos 20 · Dos Caminos 30 · El Vínculo 30 · Cruz Celta 45 (D-14) | Carta Única de 5 a 15 y Tres Tiempos de 15 a 30. La Carta Única tiene que costar menos que Tres Tiempos: es regla del validador (R12). Con la vela de 100 UT y 2 preguntas por cliente, son entre 3 y 5 clientes por jornada | Clientes por jornada y rendimiento por UT (F3) |
+| Costo en UT por tirada | Carta Única 10 · Tres Tiempos 20 · Dos Caminos 30 · El Vínculo 30 · Cruz Celta 45 (D-14) | Carta Única de 5 a 15 y Tres Tiempos de 15 a 30, siempre con `C_CU + n_acl · C_acl < C_TT`. La condición es regla del validador (R12) y manda sobre los rangos. Con 2 preguntas por cliente (5 UT cada una, GDD §5.1), un cliente cuesta 20 UT con Carta Única y 30 con Tres Tiempos: 5 o 3 clientes por vela de 100 UT, menos con aclaratorias o trucos | Clientes por jornada y rendimiento por UT (F3) |
 | Disponibilidad de Dos Caminos y El Vínculo | desbloqueables, condición a definir | La define el sistema de desbloqueo (Open Questions) | Cuándo se amplía el repertorio |
 | Sede mínima de la Cruz Celta | "sedes altas", a definir | Sede 4 a 8 en el Mapa B (fuera del MVP, que va de la Sede 1 a la 3) | Cuándo aparecen los asuntos graves |
 | Proporción de "sí" (`ρ`) | 0,5 | Solo 0,5: con cualquier otro valor, contestar siempre lo mismo conviene (F4). Es del Generador; está acá como referencia | Que el sí o no se deduzca del cliente y no se adivine |
-| Costo de la carta aclaratoria | 5 UT | 3 a 9, siempre con Carta Única + aclaratoria < Tres Tiempos (regla del validador, R12) | Cuánto cuesta rescatar una carta muda (F5) |
-| Aclaratorias por tirada | 1 | 1 a 2. Las cifras de Cartas F4 suponen 1; con 2 se recalculan | Cuánta palanca del Pilar 6 hay por cliente |
+| Costo de la carta aclaratoria | 5 UT | 3 a 9, siempre con `C_CU + n_acl · C_acl < C_TT` (regla del validador, R12) | Cuánto cuesta rescatar una carta muda (F5) |
+| Aclaratorias por tirada | 1 | 1 a 2, siempre con `C_CU + n_acl · C_acl < C_TT` (con 2 y 5 UT, Tres Tiempos tiene que costar más de 20). Las cifras de Cartas F4 suponen 1; con 2 se recalculan | Cuánta palanca del Pilar 6 hay por cliente |
 
 El bono por tirada esperada no está acá: lo define Resonancia (R8). El umbral de la advertencia de E1 tampoco es perilla, porque sale del costo de la tirada más barata que se ofrece.
 
@@ -286,6 +289,7 @@ Elegir la tirada es un compromiso: una vez repartida no se cambia (R5). El momen
 | Waite (1910), Parte III §7 | Posiciones de la Cruz Celta |
 | D-09, D-14, D-23, D-28, D-37 | Robo al azar; tiradas y costos; MVP; vela por acción; Generador sin conocer la tirada |
 | D-48, D-50, D-51, D-52 | Sorteo de la verdad según el mazo; Carta Única → desenlace y pregunta de sí o no |
+| D-53, D-54, D-55 | Interfaz `k_tiradas` y umbral de impuesto de la aclaratoria; cifras con valencia para el prototipo; cobro al confirmar, Dos Caminos con desenlace, Credulidad y costos |
 | Taxonomía R8–R13, E3, E4 | Roles, posiciones libres, formas, validador; rol ausente; roles repetidos |
 | Cartas F1, F3, R11 | Pesos de la verdad; `P_pos`; informe de cobertura |
 
@@ -297,7 +301,7 @@ Convenciones de prueba:
 - El RNG y el reparto se simulan; ningún test depende del azar.
 - `ROL_INEXISTENTE`, `FORMA_INEXISTENTE`, `POSICION_AMBIGUA` y `TIRADA_SIN_COMPARABLES` ya los prueban AC-31, AC-33, AC-37a/b y AC-38 de la Taxonomía, y SIN_COMPARACION su E3. No se repiten acá.
 - **Evidencia:** todos son Logic (test unitario en `[test root]/tiradas/`), salvo los marcados Integration, UI o Config/Data. Los *provisorios* dependen de un GDD que no existe y no bloquean hasta que exista.
-- **Sin AC, a propósito:** F2 y F3 son de calibración y ningún código del juego las calcula. La suma de deducción de F4 es de Detección. E5 lo cubre la Taxonomía (E3) y AC-08. La combinación de E7 es de Resonancia. E8 es una consecuencia intencional de R10 y va al playtest.
+- **Sin AC, a propósito:** F2, F3 y F5 son de calibración y ningún código del juego las calcula. La suma de deducción de F4 es de Detección. E5 lo cubre la Taxonomía (E3) y AC-08. La combinación de E7 es de Resonancia. E8 es una consecuencia intencional de R10 y va al playtest.
 
 **Catálogo**
 - **AC-01** (R1–R12) — GIVEN `fixture_tiradas_valido`, WHEN se valida, THEN la lista está vacía.
@@ -309,7 +313,7 @@ Convenciones de prueba:
   - El Vínculo: Desenlace con las otras 4; Consultante y El Otro, cada uno con Lo que une y con Lo que separa.
   - Cruz Celta: 1–2, 1 y 2 con cada una de 3 a 6, 7–8, 8–9 y 9–10.
 - **AC-04** (R12) — GIVEN `tirada_vecina` con la vecindad `p1–p9`, donde `p9` no es una posición suya, WHEN se valida, THEN contiene error de vecindad con sujeto `tirada_vecina/p9`. Control: con `p1–p2`, no lo contiene.
-- **AC-05** (R11, R12) — GIVEN `tirada_sin_desenlace`, sin ninguna posición de rol desenlace, WHEN se valida, THEN contiene error de desenlace con sujeto `tirada_sin_desenlace`. Control: con una posición de desenlace, no lo contiene.
+- **AC-05** (R11, R12) — GIVEN `tirada_sin_desenlace`, con una posición de rol `rol.origen` y ninguna de rol desenlace (para que no salte `TIRADA_SIN_COMPARABLES`), WHEN se valida, THEN contiene error de desenlace con sujeto `tirada_sin_desenlace`. Control: con una posición de desenlace, no lo contiene.
 
 **Oferta**
 - **AC-06** (R6, E1) — GIVEN Carta Única y Tres Tiempos disponibles, WHEN se piden las tiradas ofrecidas, THEN: con 20 UT, las dos; con 19, solo Carta Única; con 10, solo Carta Única; con 9, ninguna, y el cliente queda marcado como "no se puede leer".
@@ -321,7 +325,7 @@ Convenciones de prueba:
 **Lectura**
 - **AC-11** (R5, States) — GIVEN una tirada elegida, WHEN se elige otra antes de repartir, THEN se cambia. GIVEN una tirada repartida o leída, WHEN se elige otra, THEN se rechaza y la tirada no cambia. Un segundo reparto para el mismo cliente también se rechaza.
 - **AC-12** (R7) — GIVEN Tres Tiempos y un reparto simulado que devuelve (A, derecha), (B, invertida) y (C, derecha), WHEN se reparte, THEN se piden exactamente 3 cartas y quedan Pasado = A derecha, Presente = B invertida, Futuro = C derecha.
-- **AC-13** (R7, D-37, F4) — GIVEN la misma secuencia del RNG y la verdad "sí" en una corrida y "no" en otra, WHEN se reparte, THEN los dos repartos son idénticos.
+- **AC-13** (R7, D-37, F4) — GIVEN una situación con un doble de la verdad que falla si se lo lee, y la misma secuencia del RNG, WHEN se reparte cada una de las 5 tiradas, THEN el reparto termina sin leer la verdad. Control: con la verdad "sí" en una corrida y "no" en otra, las cartas y orientaciones de cada tirada son idénticas.
 - **AC-14** (R8, E4) — GIVEN cada una de las 5 formas, WHEN se elige cada tirada, THEN solo la tirada esperada de R1 activa el bono. Con `forma.si_o_no` y Tres Tiempos no hay bono, y las 3 posiciones se comparan igual.
 
 **Sí o no**
@@ -336,13 +340,14 @@ Convenciones de prueba:
 
 **Otros sistemas**
 - **AC-21** (E6; Integration, *provisorio hasta Prestidigitación*) — GIVEN un truco que cambia la carta del Presente, WHEN se compara, THEN la posición sigue con rol conflicto y se compara la carta nueva. Si el truco la invierte, se compara la orientación nueva.
-- **AC-22** (F1) — GIVEN todos los roles habilitados y presentes, WHEN se calcula `k`, THEN da 1/3/5/4/6 para Carta Única, Tres Tiempos, Dos Caminos, El Vínculo y Cruz Celta (en Cruz Celta, posiciones 1, 2, 4, 5, 6 y 10). Con los roles del MVP, Dos Caminos da 1 y El Vínculo 3. En una situación sin el rol origen, Tres Tiempos da 2.
-- **AC-23** (R12, Tuning Knobs) — GIVEN `fixture_tiradas_valido` con la Carta Única a 20 UT y Tres Tiempos a 20 UT, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Lo mismo con la Carta Única a 25. Control: con 19, no lo contiene.
+- **AC-22** (F1) — GIVEN todos los roles habilitados y presentes, WHEN se calcula `k`, THEN da 1/3/5/4/6 para Carta Única, Tres Tiempos, Dos Caminos, El Vínculo y Cruz Celta (en Cruz Celta, posiciones 1, 2, 4, 5, 6 y 10). Con los roles del MVP, Dos Caminos da 3 (Situación, Resultado A y Resultado B) y El Vínculo 3. En una situación sin el rol origen, Tres Tiempos da 2.
+- **AC-23** (R12, Tuning Knobs) — GIVEN `fixture_tiradas_valido` con la aclaratoria a 1 UT, 1 aclaratoria por tirada, la Carta Única a 20 UT y Tres Tiempos a 20 UT, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Lo mismo con la Carta Única a 25. Control: con 18 (18 + 1 = 19 < 20), no lo contiene.
 - **AC-24** (R8a) — GIVEN Tres Tiempos repartida y 10 UT, WHEN se pide una aclaratoria para Presente, THEN se reparte 1 carta más junto a Presente y se descuentan 5 UT; las palabras clave elegibles para Presente son las de las dos cartas, y Presente da un solo resultado.
-- **AC-25** (R8b) — GIVEN dos situaciones con verdades distintas y el mismo reparto, WHEN se piden las posiciones donde se ofrece la aclaratoria, THEN en las dos son todas las posiciones de la tirada.
+- **AC-25** (R8b) — GIVEN Tres Tiempos repartida con una carta sin acierto posible en Presente y cartas con acierto posible en Pasado y Futuro, en dos situaciones con verdades distintas, WHEN se piden las posiciones donde se ofrece la aclaratoria, THEN en las dos son exactamente [Pasado, Presente, Futuro]. Lo mismo en la Carta Única, con la Respuesta con y sin acierto posible.
 - **AC-26** (R8c) — GIVEN una aclaratoria ya pedida en la tirada, WHEN se pide otra, THEN se rechaza. Con 4 UT, no se ofrece. Después de confirmar la lectura de una posición, no se ofrece para esa posición.
-- **AC-27** (R12, Tuning Knobs) — GIVEN la aclaratoria a 10 UT, con Carta Única a 10 y Tres Tiempos a 20, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Con 9, no lo contiene.
-- **AC-28** (R8b, D-50) — GIVEN un doble de `acierto_posible` y del acceso a la verdad que fallan si se los llama, WHEN se arma la oferta de aclaratoria, THEN la oferta se arma sin llamarlos.
+- **AC-27** (R12, Tuning Knobs) — GIVEN la aclaratoria a 10 UT, 1 aclaratoria por tirada, con Carta Única a 10 y Tres Tiempos a 20, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Con 9, no lo contiene. Con la aclaratoria a 5 y 2 aclaratorias por tirada (10 + 2 · 5 = 20), lo contiene; con Tres Tiempos a 21, no.
+- **AC-28** (R8b, D-50) — GIVEN cartas cuyo `acierto_posible` falla al leerse, por cualquier vía, y un acceso a la verdad que falla si se lo lee, WHEN se arma la oferta de aclaratoria de Tres Tiempos, THEN se arma sin fallar y es exactamente [Pasado, Presente, Futuro].
+- **AC-29** (R5, R6) — GIVEN 30 UT, WHEN se elige la Carta Única, se cambia a Tres Tiempos y se confirma el reparto, THEN la vela queda en 10 (se descontaron 20, una vez). Elegir sin confirmar no descuenta nada. Si la vela baja a 15 entre la elección de Tres Tiempos y la confirmación, el reparto se rechaza y la vela sigue en 15.
 
 ## Open Questions
 
@@ -354,6 +359,8 @@ Convenciones de prueba:
 | Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD del sistema de desbloqueo (Fama o Trastienda) | Antes del Vertical Slice |
 | Qué pasa con un cliente al que no se le puede ofrecer ninguna tirada (E1) | GDD de Fila y Mirilla | Al diseñar Fila y Mirilla |
 | ¿El estatus del cliente (§5.4, "lo que puede pagar") limita qué tiradas se le ofrecen? | GDD de Arquetipos, economía | Al diseñar Arquetipos |
+| ¿La tarifa crece con la tirada (un multiplicador por tirada en `economia-mvp.md`) o el valor de una tirada grande sale solo de Resonancia? Hoy la tarifa no depende de la tirada (F3), y en el MVP elegir tirada se reduce a reconocer la forma del motivo | Diseñador, economía | Prototipo del núcleo |
+| Con 10 a 14 UT, elegir la Carta Única deja sin aclaratoria justo cuando la carta puede salir muda. Medirlo con el umbral de impuesto de la aclaratoria (D-53) | Diseñador | Prototipo del núcleo |
 | ¿Carta Única + *invertir* (12 UT) desplaza a Tres Tiempos (20 UT)? Medir | Diseñador | Prototipo del núcleo |
 | ¿Las posiciones libres de la Cruz Celta y El Vínculo se sienten como una falsa elección? | Diseñador | Playtest |
 | La tirada final del Mapa B (Cruz Celta del Lunes Negro) | `design/mapas/mapa-b-new-carthage.md` | Fuera del MVP |

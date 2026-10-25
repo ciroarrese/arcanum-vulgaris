@@ -27,15 +27,15 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
-| 1 | Taxonomía de Temas y Roles (inferred) | Core | MVP | In Review | [taxonomia-de-temas-y-roles.md](taxonomia-de-temas-y-roles.md) | — |
+| 1 | Taxonomía de Temas y Roles (inferred) | Core | MVP | Needs Revision | [taxonomia-de-temas-y-roles.md](taxonomia-de-temas-y-roles.md) | — |
 | 2 | Modificadores (inferred) | Core | MVP | Not Started | — | — |
-| 3 | Base de Datos de Cartas | Core | MVP | In Review | [base-de-datos-de-cartas.md](base-de-datos-de-cartas.md) | Taxonomía de Temas y Roles |
+| 3 | Base de Datos de Cartas | Core | MVP | Needs Revision | [base-de-datos-de-cartas.md](base-de-datos-de-cartas.md) | Taxonomía de Temas y Roles |
 | 4 | RNG con Semilla (inferred) | Core | MVP | Not Started | — | — |
 | 5 | Arquetipos y Pieles de Mapa | Core | MVP | Not Started | — | Taxonomía de Temas y Roles |
 | 6 | Flujo de Jornada (inferred) | Core | MVP | Not Started | — | — |
 | 7 | Mazo y Robo | Gameplay | MVP | Not Started | — | Base de Datos de Cartas, RNG con Semilla |
 | 8 | Reloj de Vela | Gameplay | MVP | Not Started | — | Flujo de Jornada, Modificadores |
-| 9 | Tiradas | Gameplay | MVP | Designed | [tiradas.md](tiradas.md) | Taxonomía de Temas y Roles, Mazo y Robo, Base de Datos de Cartas, Reloj de Vela |
+| 9 | Tiradas | Gameplay | MVP | Needs Revision | [tiradas.md](tiradas.md) | Taxonomía de Temas y Roles, Mazo y Robo, Base de Datos de Cartas, Reloj de Vela |
 | 10 | Generador de Situaciones | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Tiradas, Arquetipos y Pieles de Mapa, RNG con Semilla |
 | 11 | Métricas del Cliente | Gameplay | MVP | Not Started | — | Arquetipos y Pieles de Mapa, Modificadores |
 | 12 | Gramática de Combinación | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Tiradas |
