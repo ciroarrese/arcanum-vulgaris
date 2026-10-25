@@ -96,7 +96,7 @@ Elegir la tirada es apostar cuánto vale este cliente. El tarotista mira la ropa
 **Precio, pago y vuelta del cliente (D-57)**
 
 8e. **Precio y pago (D-57).** Cada tirada tiene un precio `π` (R1) que multiplica la tarifa del cliente: las tiradas más complejas valen más. El pago real no es el precio: depende de cómo quedó el cliente (satisfecho, emocionado, pasmado, enojado) y nunca supera lo que el cliente tiene. Un cliente pobre paga lo que puede aunque la tirada valga más. Cómo se calcula lo definen Resonancia y la economía (F3a, *provisorio*). Lo que tiene el cliente se deduce en la mesa, no se muestra (Pilar 1, Open Questions).
-8f. **Negociar la vuelta (D-57).** Se puede con cualquier cliente, pero solo cuando la vela no alcanza para su tirada esperada (R8) o para ninguna (E1). El cliente se va sin lectura y puede volver o no en la próxima jornada. La negociación no es gratis ni igual para todos: cambia la Paciencia, el enojo y otras métricas según el arquetipo, a veces a favor, a veces en contra y a veces sin efecto. El juego no lo explica; el jugador lo aprende jugando (§3.3). La negociación y sus efectos son de Fila y Mirilla y de Métricas del Cliente (*provisorio*); Tiradas solo fija cuándo se ofrece.
+8f. **Negociar la vuelta (D-57).** Se puede con cualquier cliente, pero solo cuando la vela no alcanza para alguna tirada que sea ofrecible por catálogo (disponible y con todos sus roles habilitados, E3), sea o no la esperada. Así cubre la vela corta de R8 y el cliente sin tirada de E1 sin delatar cuál es la esperada: en el MVP, con menos de 20 UT se puede negociar con cualquier cliente. El cliente se va sin lectura y puede volver o no en la próxima jornada. La negociación no es gratis ni igual para todos: cambia la Paciencia, el enojo y otras métricas según el arquetipo, a veces a favor, a veces en contra y a veces sin efecto. El juego no lo explica; el jugador lo aprende jugando (§3.3). La negociación y sus efectos son de Fila y Mirilla y de Métricas del Cliente (*provisorio*); Tiradas solo fija cuándo se ofrece.
 
 **Pregunta de sí o no (D-51)**
 
@@ -139,7 +139,7 @@ Durante la lectura de un cliente: **elegida → repartida → (aclarada, opciona
 
 1. El cliente se sienta y dice su motivo. El motivo queda visible hasta el final de la lectura.
 2. Preguntas y tells, opcionales (5 UT cada pregunta, GDD §5.1). No hay preguntas después del reparto.
-3. Si la vela no alcanza para la tirada esperada, se puede negociar que vuelva (R8f) y la atención termina acá.
+3. Si la vela no alcanza para alguna tirada ofrecible, se puede negociar que vuelva (R8f) y la atención termina acá.
 4. Elegir la tirada, gratis y reversible (R5).
 5. Confirmar el reparto: se revalida R6 y se cobra la tirada.
 6. Por cada posición, en cualquier orden:
@@ -345,7 +345,7 @@ Elegir la tirada es un compromiso: una vez repartida no se cambia (R5). El momen
   Si no se ofrece ninguna tirada, el selector se muestra igual, con todo deshabilitado, y siempre hay una salida: negociar la vuelta (R8f) o dejar ir al cliente.
 - **Aclaratoria:** el botón muestra su costo y se ve igual en todas las posiciones (con rol o libres) y con cualquier carta (R8b). Si no se puede pedir, se ve deshabilitado con el motivo ("falta vela", "ya la usaste", "posición ya leída"). Elegir la posición y confirmar el pedido son dos acciones distintas (R8a).
 - **Nada en la presentación depende del rol** de la posición, ni de si una carta tiene acierto posible: ni marco, ni color, ni orden, ni sonido.
-- **Negociar la vuelta (R8f):** la opción no puede delatar cuál es la tirada esperada (Open Questions).
+- **Negociar la vuelta (R8f):** la opción aparece por la vela, nunca por la forma del motivo, así que no delata cuál es la tirada esperada.
 - **La tirada esperada no se marca.** El motivo del cliente se dice en su texto ("¿me va a llamar, sí o no?"), y reconocer qué tirada pide es parte de leerlo (§3.3: lo aprendido no lo explica el juego).
 - La advertencia de E1 aparece antes de confirmar la acción que deja la vela sin tirada posible.
 
@@ -433,7 +433,7 @@ Convenciones de prueba:
 - **AC-27** (R12, Tuning Knobs) — GIVEN la aclaratoria a 10 UT, 1 aclaratoria por tirada, con Carta Única a 10 y Tres Tiempos a 20, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Con 9, no lo contiene. Con la aclaratoria a 5 y 2 aclaratorias por tirada (10 + 2 · 5 = 20), lo contiene; con Tres Tiempos a 21, no.
 - **AC-28** (R8b, D-50) — GIVEN cartas cuyo `acierto_posible` falla al leerse, por cualquier vía, y un acceso a la verdad que falla si se lo lee, WHEN se arma la oferta de aclaratoria de Tres Tiempos, THEN se arma sin fallar y es exactamente [Pasado, Presente, Futuro].
 - **AC-29** (R5, R6) — GIVEN 30 UT, WHEN se elige la Carta Única, se cambia a Tres Tiempos y se confirma el reparto, THEN la vela queda en 10 (se descontaron 20, una vez). Elegir sin confirmar no descuenta nada. Si la vela baja a 15 entre la elección de Tres Tiempos y la confirmación, el reparto se rechaza y la vela sigue en 15.
-- **AC-30** (R8, R8f, E1; *provisorio hasta Reloj de Vela y Fila y Mirilla*) — GIVEN un cliente con `forma.situacion_general`, WHEN se pregunta si se puede negociar la vuelta, THEN con 15 UT sí (Tres Tiempos no se ofrece), con 9 UT sí (no se ofrece ninguna) y con 20 UT no. Con `forma.si_o_no`, a 15 UT no (la Carta Única se ofrece).
+- **AC-30** (R8, R8f, E1; *provisorio hasta Reloj de Vela y Fila y Mirilla*) — GIVEN un cliente con `forma.situacion_general`, WHEN se pregunta si se puede negociar la vuelta, THEN con 15 UT sí (Tres Tiempos no se ofrece), con 9 UT sí (no se ofrece ninguna) y con 20 UT no. Con `forma.si_o_no` da lo mismo en los tres casos: la opción no depende de la forma. Control: con 15 UT y Tres Tiempos no disponible, no se puede negociar.
 - **AC-31** (R8; *provisorio hasta Resonancia*) — GIVEN `forma.situacion_general` y 15 UT, WHEN se lee con la Carta Única, THEN la lectura no lleva bono de tirada ni marca de baja de Credulidad. Control: con 30 UT y la Carta Única, lleva la marca de baja.
 
 ## Open Questions
@@ -445,9 +445,8 @@ Convenciones de prueba:
 | Contratos de R10 y E3: el sorteo del sí o no (`ρ` = 0,5, desenlace dentro de la valencia) y las formas solo con tirada disponible | GDD del Generador | Al diseñar el Generador |
 | Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD de Fama, Reputación y Ascenso de Sede (D-56) | Antes del Vertical Slice |
 | Negociar la vuelta (R8f): si el cliente vuelve, cuánto cambian Paciencia, enojo y otras métricas por arquetipo, y qué pasa con el cliente que se deja ir sin negociar (E1) | GDD de Fila y Mirilla, Métricas del Cliente | Al diseñar Fila y Mirilla |
-| **Fuga de información de R8f:** como la negociación se habilita cuando la vela no alcanza para la tirada esperada, que aparezca la opción delata cuál es la esperada (con 15 UT aparece en situación general y no en sí o no). ¿Se acepta, se habilita siempre que alguna tirada disponible no alcance, o se esconde de otra forma? | Diseñador, `/ux-design` | Antes de las historias del selector |
 | ¿El estatus del cliente (§5.4, "lo que puede pagar") limita qué tiradas se le ofrecen? | GDD de Arquetipos, economía | Al diseñar Arquetipos |
-| **Hipótesis del prototipo (D-57):** con precio por tirada (`π`) y pago limitado por el cliente (F3a), elegir tirada deja de ser solo reconocer la forma. Valores iniciales: `π` de R1, `B_tirada` ×1,1 sobre el pago, baja de Credulidad de 10 puntos. **Métrica de descarte:** si más del 80 % de los clientes de situación general con vela suficiente se leen con la Carta Única, o más del 95 % de todos los clientes con su tirada esperada sin mirar al cliente, la hipótesis cae | Diseñador | Prototipo del núcleo |
+| **Hipótesis del prototipo (D-57):** con precio por tirada (`π`) y pago limitado por el cliente (F3a), elegir tirada deja de ser solo reconocer la forma. Valores iniciales: `π` de R1, `B_tirada` ×1,1 sobre el pago, baja de Credulidad de 10 puntos. **Métrica de descarte:** si más del 80 % de los clientes de situación general con vela suficiente se leen con la Carta Única, la hipótesis cae. Con estos valores y el cliente satisfecho, Tres Tiempos rinde 0,055·T por UT contra 0,050·T de la Carta Única en situación general, y al revés en sí o no; ante un cliente que no puede pagar 1,65·T conviene la Carta Única. La baja de Credulidad casi no pesa con los clientes pobres de la Sede 1 (revisión del 2026-10-25): el peso lo carga el precio | Diseñador | Prototipo del núcleo |
 | Recalibrar `economia-mvp.md` y `tools/balance/economia_mvp.py` con el precio por tirada y el pago limitado (F3a): hoy suponen tarifa plana, no modelan aclaratoria, trucos ni elección según la forma, descartan las UT entre 10 y 19 y no bajan a Carta Única cuando no alcanza para Tres Tiempos | Diseñador, economía | Antes de cerrar la economía del MVP |
 | Cómo se deduce lo que tiene el cliente (`B_cliente`, F3a): ropa, arquetipo, tells | GDD de Arquetipos, Detección | Al diseñar Arquetipos |
 | E8 y R11a: proporción de Cartas Únicas de sí o no resueltas con una palabra ambigua. Si pasa del 50 %, el refugio en la ambigua es la jugada por defecto y Resonancia no cumple R11a | Diseñador | Prototipo del núcleo |
