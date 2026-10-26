@@ -35,7 +35,7 @@ Arcanum Vulgaris es un roguelite de deducción donde el jugador es un tarotista 
 | 6 | Flujo de Jornada (inferred) | Core | MVP | Not Started | — | — |
 | 7 | Mazo y Robo | Gameplay | MVP | Not Started | — | Base de Datos de Cartas, RNG con Semilla |
 | 8 | Reloj de Vela | Gameplay | MVP | Not Started | — | Flujo de Jornada, Modificadores |
-| 9 | Tiradas | Gameplay | MVP | Needs Revision | [tiradas.md](tiradas.md) | Taxonomía de Temas y Roles, Mazo y Robo, Base de Datos de Cartas, Reloj de Vela |
+| 9 | Tiradas | Gameplay | MVP | In Review | [tiradas.md](tiradas.md) | Taxonomía de Temas y Roles, Mazo y Robo, Base de Datos de Cartas, Reloj de Vela |
 | 10 | Generador de Situaciones | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Tiradas, Arquetipos y Pieles de Mapa, RNG con Semilla |
 | 11 | Métricas del Cliente | Gameplay | MVP | Not Started | — | Arquetipos y Pieles de Mapa, Modificadores |
 | 12 | Gramática de Combinación | Gameplay | MVP | Not Started | — | Taxonomía de Temas y Roles, Base de Datos de Cartas, Tiradas |

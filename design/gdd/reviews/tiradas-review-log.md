@@ -120,3 +120,46 @@ Reviewed-Content-Hash: design/decision-log.md 3abc53b922cc653a1a7d13d37807e59618
 Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8aaaaf81b030401e6
 Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
 Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef
+
+## Review — 2026-10-26 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, economy-designer, qa-lead, ux-designer, creative-director (senior)
+Blocking items: 11 (6 para prototipar, 5 para APPROVED) | Recommended: 9
+Summary: Cuarta pasada. La estructura está estable y la aritmética es correcta, pero la economía provisoria de F3a no converge: el stub de preguntas no tenía tope, no dependía del Match ni de la intención y suponía cola ilimitada, así que la hipótesis podía aprobar o descartar por el motivo equivocado. La contradicción de States (preguntar entre elegir y confirmar) la encontraron por separado cuatro revisores. El CD pidió sacar la hipótesis al plan del prototipo y dejar en Tiradas solo invariantes (D-59).
+Prior verdict resolved: Yes (los 12 bloqueantes anteriores figuran corregidos; las correcciones de F3a abrieron los bloqueantes 1–3 y 11)
+Findings:
+- [BLOCKING-proto] F3a: stub R_0(1+α·q) sin tope, sin Match ni intención; aclaratoria con retorno 0; con α < 0,30 el resultado se conoce antes de jugar.
+- [BLOCKING-proto] F3a/Open Questions: clientes por jornada (N) sin definir; según N domina TT o CU, no el cliente.
+- [BLOCKING-proto] Open Questions: métrica 80/95 % sin potencia con 3–5 clientes; barrido de π_TT del lado conocido.
+- [BLOCKING-proto] States: paso 5 contra tabla de operaciones (preguntar y negociar con tirada elegida); AC-29c sin sentido.
+- [BLOCKING-proto] R8f: condición en vivo (gastar vela la habilita); q del cliente que vuelve sin definir.
+- [BLOCKING-proto] R10: polaridad del sí o no sin especificar.
+- [BLOCKING] States: elegir tirada no ofrecida, reversibilidad de la afirmación, aclaratoria y trucos tras afirmar.
+- [BLOCKING] AC: AC-23, 19 y 16 pasan con código incorrecto; AC-26b, 33, 17a/c, 10 incompletos; R11 sin AC positivo; fixture contra AC-01; sin AC de orden y foco.
+- [BLOCKING] UI: negociar sin confirmación; "Repartir" sin especificar; ningún botón debe elegir y confirmar.
+- [BLOCKING] UI/Pilar 3: motivo sin política de subtítulo, ritmo, interrupción ni repetición; accessibility-requirements.md no existe.
+- [BLOCKING] F3a (si quedaba): "con B < T gana siempre la CU" es falso con R < 1; cruce general B > 1,5·T·R.
+- [RECOMMENDED] E1/UI: vela corta silenciosa; vista previa pasiva de tiradas perdidas.
+- [RECOMMENDED] R8e: al menos una señal de B independiente del estatus.
+- [RECOMMENDED] Tuning Knobs: rangos como dominio conjunto; validar ρ en (0,1).
+- [RECOMMENDED] AC fusionados (02, 06, 11b/c, 13, 14, 24, 25, 28, 30, 31, 35); borde 19/20 de AC-31; convención de provisorios con dueño.
+- [RECOMMENDED] UI: estados del selector sin color; contador y ubicación de la aclaratoria; confirmar posición contra error de entrada.
+- [RECOMMENDED] Resonancia: vender bien una carta muda tiene que pagar (Pilar 6).
+- [RECOMMENDED] economia-mvp.md: dos fuentes de verdad; pasar a "en recalibración".
+- [RECOMMENDED] economia_mvp.py: las UT de 10–19 valen una CU; el corte en 20 pierde 15–25 % del ingreso.
+- [RECOMMENDED] Registro: faltan π, n_acl, B_tirada y α.
+Disputas: (i) Preguntar con tirada elegida — ux pedía rechazarlo, el CD intercalar; el diseñador eligió intercalar. (ii) F3a contra la economía aprobada — bloqueante del plan y de la economía, no de Tiradas. (iii) Fila Base — el fondo del hallazgo de economy vale, pero la tabla es ambigua; queda para Fila y Mirilla. (iv) Cruce 1,5·T (systems, bloqueante) — recomendado, porque está rotulado con R = 1. (v) Stub sin Match — defecto del instrumento, no del contrato. Decisiones del diseñador (D-59): plan del prototipo, intención completa en el modelo (contra la recomendación del CD), N como parámetro en vela escasa, intercalar, R8f al sentarse sin q, subtítulo + repetir + accesibilidad, polaridad como campo (contra la recomendación de contrato de redacción), negociar en dos pasos.
+Receipt: sellado sobre la versión revisada, antes de las correcciones; decision-log.md y systems-index.md con su hash previo al cambio.
+Reviewed-Content-Hash: design/gdd/tiradas.md 552e0c33a51be762ad93e6e59c7d346ba82236fe
+Reviewed-Content-Hash: design/registry/entities.yaml 57baf5849122b8e7da5e197f10ee09b9b1f7b428
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md b37ffe1ed707d4760640a7e8f4326b8e22c51d47
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md 4303f55de6f7826bbc2bd9ee0cb08053a162e515
+Reviewed-Content-Hash: design/decision-log.md 2c986e77c6433423a3cf0e6a22f7378938d33ee1
+Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8aaaaf81b030401e6
+Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
+Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef

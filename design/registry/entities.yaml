@@ -494,6 +494,16 @@ constants:
     unit: UT por carta aclaratoria (una por tirada)
     added: 2026-10-25
     revised: ""
+  - name: aclaratorias_por_tirada
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - design/gdd/base-de-datos-de-cartas.md
+    value: 1
+    unit: aclaratorias por tirada en total (n_acl; como máximo una por posición, D-59)
+    added: 2026-10-26
+    revised: ""
 
 # Example:
 #

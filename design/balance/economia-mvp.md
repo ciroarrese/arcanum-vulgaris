@@ -1,6 +1,6 @@
 # Economía del MVP — Mapa B, Sedes 1 a 3
 
-> **Estado: APROBADO** (D-35). Números provisorios para el prototipo; el rebalanceo completo se hace con datos de juego real.
+> **Estado: EN RECALIBRACIÓN** (D-35 aprobó esta versión; D-57 y D-59 la reabren). El precio por tirada y el pago limitado por lo que tiene el cliente (`design/gdd/tiradas.md` F3a) reemplazan la tarifa plana de §1; el script todavía no los modela. El modelo provisorio está en `prototypes/nucleo/plan-hipotesis-tiradas.md`. Números provisorios para el prototipo; el rebalanceo completo se hace con datos de juego real.
 > **Simulación:** `tools/balance/economia_mvp.py` (Monte Carlo, 2.000 partidas por perfil). Si un valor cambia acá, cambia en el script.
 
 ## 1. Regla de Tarifas (resuelve la contradicción de la v1.3)
