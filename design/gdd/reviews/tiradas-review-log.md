@@ -79,3 +79,44 @@ Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df7
 Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
 Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef
 Reviewed-Content-Hash: design/gdd/gdd-cross-review-2026-10-25.md e9634ded1a1500ba564587e6a9d3807e6bcb0520
+
+## Review — 2026-10-26 — Verdict: NEEDS REVISION
+Review mode: full · Workflow: standard
+Scope signal: L
+Specialists: game-designer, systems-designer, economy-designer, qa-lead, ux-designer, creative-director (senior)
+Blocking items: 12 (5 para prototipar, 7 para APPROVED) | Recommended: 8
+Summary: Tercera pasada. Estructura completa, aritmética verificada y sin conflictos con el registro. El hallazgo central (economy, game-designer, systems) es que D-57 no cumple su propio objetivo: con 0 preguntas (son opcionales y hoy costo puro) o con B < T, la Carta Única domina en pago por UT, así que la hipótesis del prototipo vuelve a no poder fallar. El CD pide recalibrar sin rehacer: F3a ordenada, preguntas como variable medida con beneficio stub, métrica de descarte simétrica y por jornada, B/T legible en el fixture y R8f fuera del prototipo o acotada.
+Prior verdict resolved: Yes (los 17 bloqueantes anteriores figuran corregidos; las correcciones trasladan validación a sistemas sin GDD)
+Findings:
+- [BLOCKING-proto] F3a: orden de bono, tope y R sin definir; cruce mal escrito (1,65·T → 1,5·T).
+- [BLOCKING-proto] F3a/Open Questions: con 0 preguntas CU 0,100·T/UT contra TT 0,0825·T; preguntas sin beneficio → "no preguntar + CU" domina.
+- [BLOCKING-proto] Open Questions: métrica de descarte unilateral y por UT; falta techo de la esperada y medición por jornada.
+- [BLOCKING-proto] F3a/R8e: B/T sin distribución ni señales observables para el prototipo (requisito saliente a Arquetipos).
+- [BLOCKING-proto] R8f: sin gate de estado (tras el reparto siempre se ofrece) y sin costo; no medible.
+- [BLOCKING] AC: cero AC de transiciones ilegales del orden de atención.
+- [BLOCKING] AC: R8b sin AC con posición libre; R8d sin AC.
+- [BLOCKING] AC: R8e sin AC ("ningún código la calcula" es falso); R11a sin trazabilidad.
+- [BLOCKING] States: revalidación de R6 inalcanzable (AC-29), truco sobre posición confirmada contra R8c, saltear posición, orden aclaratoria/palabra, Disponible vs Fama.
+- [BLOCKING] R8: vela corta medida al sentarse el cliente (exploit de bajar la vela adrede).
+- [BLOCKING] AC-30: falta 19 UT y roles deshabilitados.
+- [BLOCKING] UI: orden y foco fijos del selector; reversibilidad de confirmar; palabra elegida al llegar la aclaratoria; estado "elegida" y rechazo de R6; motivo visible frente al Pilar 3; no disponibles visibles u ocultas.
+- [RECOMMENDED] Tuning Knobs: barrer π_TT 1,8–2 en el prototipo; rangos de costos como dominio conjunto.
+- [RECOMMENDED] Script de economía: cola de 10–19 UT.
+- [RECOMMENDED] F4: asimetría de Match sí (4 temas) / no (9); validar ρ en (0,1); rotular la mezcla.
+- [RECOMMENDED] F1/F3/F5: k = 0, s por familia y exacto, cota con rol repetido.
+- [RECOMMENDED] AC: ajustes de qa-lead Q5–Q19 (AC-12, 13, 16, 17b, 17c, 18, 19, 22, 24, 26b, 29, 31, rótulos, fixture).
+- [RECOMMENDED] Resonancia: varianza de R mayor con tiradas grandes.
+- [RECOMMENDED] Open Questions: gate de spec y hardware para la Cruz Celta.
+Disputas: (i) economy MAJOR contra NEEDS REVISION — NEEDS REVISION, arreglos locales. (ii) Hipótesis D-57 — se resuelve en el prototipo con condiciones, sin fijar π ni el valor final de las preguntas. (iii) Rangos contra validador (systems, bloqueante) — recomendado. (iv) Fantasía no entregada (game-designer, bloqueante) — no bloquea Tiradas; requisito saliente y verificación en el prototipo. (v) UX — reglas que tocan pilares al GDD, el resto a /ux-design. Rechazados: G7 ("contestar siempre no" da 50 %), AC-23/27 fuera de rango (son de borde), Monte Carlo previo al prototipo.
+Receipt: sellado sobre la versión revisada, antes de las correcciones; systems-index.md con su hash previo al cambio de estado.
+Reviewed-Content-Hash: design/gdd/tiradas.md fc3bc479643ba3dabdd755e1e513371049aa8020
+Reviewed-Content-Hash: design/registry/entities.yaml 57baf5849122b8e7da5e197f10ee09b9b1f7b428
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md b37ffe1ed707d4760640a7e8f4326b8e22c51d47
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md 45bc092b57bb53392663a5347d5d152be52180df
+Reviewed-Content-Hash: design/decision-log.md 3abc53b922cc653a1a7d13d37807e5961812142e
+Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8aaaaf81b030401e6
+Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
+Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef

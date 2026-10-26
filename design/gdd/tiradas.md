@@ -1,10 +1,10 @@
 # Tiradas
 
 > **Status**: In Review
-> **Creative Director Review (CD-GDD-ALIGN)**: `/design-review` full del 2026-10-25 (primera pasada), NEEDS REVISION; corregida el mismo día (D-55); re-revisión full del 2026-10-25, NEEDS REVISION, corregida el mismo día (D-57); pendiente de re-revisión
+> **Creative Director Review (CD-GDD-ALIGN)**: `/design-review` full del 2026-10-25 (primera pasada), NEEDS REVISION; corregida el mismo día (D-55); re-revisión full del 2026-10-25, NEEDS REVISION, corregida el mismo día (D-57); tercera revisión full del 2026-10-26, NEEDS REVISION, corregida el mismo día (D-58); pendiente de re-revisión
 > **Author**: Ciro + agentes
-> **Last Updated**: 2026-10-25
-> **Last Verified**: 2026-10-25
+> **Last Updated**: 2026-10-26
+> **Last Verified**: 2026-10-26
 > **Implements Pillar**: Pilar 5 (Tiranía del Tiempo), Pilar 6 (No hay Carta Mala), D-05 (tarot real)
 
 ## Summary
@@ -82,7 +82,7 @@ Elegir la tirada es apostar cuánto vale este cliente. El tarotista mira la ropa
    Si no se ofrece ninguna, el cliente no se puede leer (E2).
 7. **Reparto:** Mazo y Robo reparte una carta por posición, en el orden de la tabla de R2, cada una derecha o invertida al azar (D-09). Tiradas no decide qué cartas salen.
 8. **Tirada esperada:** cada forma de pregunta tiene una tirada esperada (R1). Si el jugador usa la esperada para la forma del motivo, se activa el bono de tirada (`B_tirada`, §5.8). Si usa otra, no hay bono y baja la Credulidad, salvo que justifique la tirada con una buena lectura (GDD §5.4). Cuánto vale el bono, cuánto baja la Credulidad y qué cuenta como justificar lo define Resonancia (*provisorio*).
-   - **Vela corta (D-57):** si la tirada esperada no se ofrece porque la vela no alcanza (R6, tercera condición) y sí se ofrece otra, el jugador elige entre dos salidas:
+   - **Vela corta (D-57, D-58):** si la vela **al sentarse el cliente** (paso 1 de States) ya no alcanzaba para la tirada esperada y sí se ofrece otra, el jugador elige entre dos salidas. Se mide al sentarse, no al elegir: si el jugador gasta vela en preguntas o trucos y después no le alcanza para la esperada, la baja de Credulidad se aplica. Así no se puede forzar la exención gastando vela a propósito:
      - leer con una tirada que se ofrece: no hay bono y **no** baja la Credulidad;
      - **negociar que el cliente vuelva la próxima jornada** (R8f).
 
@@ -95,8 +95,9 @@ Elegir la tirada es apostar cuánto vale este cliente. El tarotista mira la ropa
 
 **Precio, pago y vuelta del cliente (D-57)**
 
-8e. **Precio y pago (D-57).** Cada tirada tiene un precio `π` (R1) que multiplica la tarifa del cliente: las tiradas más complejas valen más. El pago real no es el precio: depende de cómo quedó el cliente (satisfecho, emocionado, pasmado, enojado) y nunca supera lo que el cliente tiene. Un cliente pobre paga lo que puede aunque la tirada valga más. Cómo se calcula lo definen Resonancia y la economía (F3a, *provisorio*). Lo que tiene el cliente se deduce en la mesa, no se muestra (Pilar 1, Open Questions).
-8f. **Negociar la vuelta (D-57).** Se puede con cualquier cliente, pero solo cuando la vela no alcanza para alguna tirada que sea ofrecible por catálogo (disponible y con todos sus roles habilitados, E3), sea o no la esperada. Así cubre la vela corta de R8 y el cliente sin tirada de E1 sin delatar cuál es la esperada: en el MVP, con menos de 20 UT se puede negociar con cualquier cliente. El cliente se va sin lectura y puede volver o no en la próxima jornada. La negociación no es gratis ni igual para todos: cambia la Paciencia, el enojo y otras métricas según el arquetipo, a veces a favor, a veces en contra y a veces sin efecto. El juego no lo explica; el jugador lo aprende jugando (§3.3). La negociación y sus efectos son de Fila y Mirilla y de Métricas del Cliente (*provisorio*); Tiradas solo fija cuándo se ofrece.
+8e. **Precio y pago (D-57).** Cada tirada tiene un precio `π` (R1) que multiplica la tarifa del cliente: las tiradas más complejas valen más. El pago real no es el precio: depende de cómo quedó el cliente (satisfecho, emocionado, pasmado, enojado) y nunca supera lo que el cliente tiene. Un cliente pobre paga lo que puede aunque la tirada valga más. Cómo se calcula lo definen Resonancia y la economía (F3a, *provisorio*). Lo que tiene el cliente se deduce en la mesa, no se muestra (Pilar 1).
+   - **Requisito a Arquetipos y al Generador (D-58):** lo que tiene el cliente (`B_cliente`) tiene que ser legible en la mesa, con al menos **2 señales observables** (ropa, arquetipo, tells), y la relación `B_cliente / T` tiene una distribución definida por sede y estatus. Sin eso el jugador no puede apostar sobre algo que no lee, y la fantasía no se entrega. Para el prototipo, la distribución y las señales son datos del fixture (Open Questions).
+8f. **Negociar la vuelta (D-57).** Se puede con cualquier cliente, solo **antes de confirmar el reparto** (paso 3 de States; después ya no se ofrece, D-58), y solo cuando la vela no alcanza para alguna tirada que sea ofrecible por catálogo (disponible y con todos sus roles habilitados, E3), sea o no la esperada. Así cubre la vela corta de R8 y el cliente sin tirada de E1 sin delatar cuál es la esperada: en el MVP, con menos de 20 UT se puede negociar con cualquier cliente. El cliente se va sin lectura y puede volver o no en la próxima jornada. La negociación no es gratis ni igual para todos: cambia la Paciencia, el enojo y otras métricas según el arquetipo, a veces a favor, a veces en contra y a veces sin efecto. El juego no lo explica; el jugador lo aprende jugando (§3.3). La negociación y sus efectos son de Fila y Mirilla y de Métricas del Cliente (*provisorio*); Tiradas solo fija cuándo se ofrece.
 
 **Pregunta de sí o no (D-51)**
 
@@ -131,25 +132,40 @@ Elegir la tirada es apostar cuánto vale este cliente. El tarotista mira la ropa
 | Estado de una tirada en la partida | Significa | Pasa a |
 |---|---|---|
 | No disponible | Todavía no se desbloqueó (Dos Caminos, El Vínculo) o no se llegó a la sede (Cruz Celta) | Disponible, cuando se cumple su condición. Lo decide Fama, Reputación y Ascenso de Sede (D-56) |
-| Disponible | Se ofrece si cumple R6 | No vuelve atrás durante la partida |
+| Disponible | Se ofrece si cumple R6 | No vuelve atrás durante la partida: Fama no puede revertirla (D-56, D-58). Un pedido de revertirla es un error del contrato con Fama |
 
 Durante la lectura de un cliente: **elegida → repartida → (aclarada, opcional, hasta `n_acl` veces) → leída**. Mientras está elegida se puede cambiar sin costo; el paso a repartida cobra la tirada (R5) y no tiene vuelta atrás (R5, R8c).
 
 **Orden de la atención de un cliente** (*provisorio hasta Flujo de Jornada, Preguntas e Interpretación*):
 
-1. El cliente se sienta y dice su motivo. El motivo queda visible hasta el final de la lectura.
+1. El cliente se sienta y dice su motivo. El motivo se dice una vez y **no queda escrito en pantalla** (Pilar 3, D-58): reconocer qué forma tiene la pregunta es memoria del jugador, como los tells. Se registra la vela en este momento, para la vela corta (R8).
 2. Preguntas y tells, opcionales (5 UT cada pregunta, GDD §5.1). No hay preguntas después del reparto.
-3. Si la vela no alcanza para alguna tirada ofrecible, se puede negociar que vuelva (R8f) y la atención termina acá.
+3. Hasta confirmar el reparto, si la vela no alcanza para alguna tirada ofrecible por catálogo, se puede negociar que vuelva (R8f) y la atención termina acá.
 4. Elegir la tirada, gratis y reversible (R5).
-5. Confirmar el reparto: se revalida R6 y se cobra la tirada.
+5. Confirmar el reparto: se revalida R6 y se cobra la tirada. En este orden ninguna acción gasta vela entre los pasos 4 y 5, así que la revalidación es una guarda del contrato con Reloj de Vela: si falla, el reparto se rechaza sin cobrar y se vuelve al paso 4.
 6. Por cada posición, en cualquier orden:
-   1. aclaratoria, opcional (R8a): elegir la posición, que es reversible, y confirmar el pedido, que cobra;
+   1. aclaratoria, opcional (R8a): elegir la posición, que es reversible, y confirmar el pedido, que cobra. Se puede pedir antes o después de elegir la palabra; si ya había una palabra elegida, se conserva;
    2. elegir la palabra clave;
-   3. confirmar la lectura de la posición, que cierra la aclaratoria para esa posición (R8c).
+   3. confirmar la lectura de la posición. Es irreversible: cierra la aclaratoria y los trucos para esa posición (R8c).
 7. En un sí o no, afirmar sí o no (R11).
-8. Confirmar la lectura completa y pasar a Resonancia.
+8. Confirmar la lectura completa y pasar a Resonancia. Las posiciones que no se confirmaron se confirman acá; una posición sin palabra da NINGUNO, sin castigo extra (Taxonomía E5).
 
-Los trucos de Prestidigitación (2 UT) se pueden hacer entre los pasos 5 y 7, sobre cartas ya repartidas.
+Los trucos de Prestidigitación (2 UT) se pueden hacer entre los pasos 5 y 7, sobre cartas ya repartidas de posiciones sin confirmar.
+
+**Operaciones permitidas por momento** (todo lo que no figura se rechaza: rechazo observable, Acceptance Criteria):
+
+| Operación | Permitida | Se rechaza |
+|---|---|---|
+| Preguntar | Antes de confirmar el reparto (paso 2) | Después del reparto |
+| Negociar la vuelta (R8f) | Antes de confirmar el reparto, con la condición de vela de R8f | Después del reparto, o sin esa condición |
+| Elegir o cambiar la tirada | Antes de confirmar el reparto | Después del reparto |
+| Confirmar el reparto | Con una tirada elegida que cumple R6 | Sin tirada elegida, o ya repartida |
+| Pedir aclaratoria (R8a) | Después del reparto, en una posición sin confirmar, dentro de `n_acl` y con 5 UT | Antes del reparto, en una posición confirmada, o fuera de esos límites |
+| Elegir palabra clave | Después del reparto, en una posición sin confirmar | Antes del reparto, o en una posición confirmada |
+| Confirmar una posición | Después del reparto, una vez por posición | Antes del reparto, o si ya está confirmada |
+| Truco de Prestidigitación | Después del reparto, sobre una posición sin confirmar | Antes del reparto, o sobre una posición confirmada |
+| Afirmar sí o no (R11) | Después del reparto, en una pregunta de sí o no | Antes del reparto, o con otra forma |
+| Confirmar la lectura completa | Después del reparto; en un sí o no, con la afirmación hecha | Antes del reparto, o en un sí o no sin afirmar |
 
 ### Interactions with Other Systems
 
@@ -220,19 +236,24 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 
 **F3a. Pago de la lectura** (*provisorio*, D-57; la fórmula final es de Resonancia y la economía)
 
-`Pago = min(T · π · R_cliente, B_cliente)`
+`Pago = min(T · π · R_cliente · b, B_cliente)`, con `b = B_tirada` si la tirada fue la esperada (R8) y `b` = 1 si no
+
+El bono va **dentro** del `min`: `B_cliente` es un techo absoluto y nada lo supera, ni el bono (R8e).
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | `T` | float | > 0 | `economia-mvp.md` | Tarifa del cliente (sede × estatus) |
 | `π` | float | ≥ 1 | R1 | Precio de la tirada: ×1 / ×1,5 / ×2 / ×2 / ×3 |
 | `R_cliente` | float | ≥ 0 | Resonancia | Cómo quedó el cliente: 0 si se enojó, alrededor de 1 si quedó satisfecho, más si quedó emocionado |
-| `B_cliente` | float | ≥ 0 | Arquetipos, Generador | Lo que el cliente tiene para pagar |
-| `Pago` | float | 0 a `B_cliente` | calculated | Lo que cobra el tarotista |
+| `b` | float | ≥ 1 | Resonancia (`B_tirada`, R8) | Bono de tirada esperada; 1 sin bono. Valor del prototipo: 1,1 |
+| `B_cliente` | float | ≥ 0 | Arquetipos, Generador | Lo que el cliente tiene para pagar (R8e: legible con al menos 2 señales) |
+| `Pago` | float | 0 a `min(T·π·R_cliente·b, B_cliente)` | calculated | Lo que cobra el tarotista |
 
-- **Ejemplo:** con `T` = 4 y el cliente satisfecho (`R_cliente` = 1), Tres Tiempos vale 6 y la Carta Única 4. Si el cliente solo tiene 5, Tres Tiempos cobra 5. Si se enojó, ninguna cobra.
+- **Ejemplo:** con `T` = 4, el cliente satisfecho (`R_cliente` = 1) y sin bono, Tres Tiempos vale 6 y la Carta Única 4. Si el cliente solo tiene 5, Tres Tiempos cobra 5. Si se enojó, ninguna cobra. Con bono (`b` = 1,1), Tres Tiempos vale 6,6, y si el cliente tiene 5 sigue cobrando 5.
 - **Por qué:** con tarifa plana, la Carta Única rinde más dinero por UT que Tres Tiempos, y elegir tirada no sería una decisión (revisión del 2026-10-25). Con `π`, una tirada grande vale la pena con un cliente que puede pagarla y no con uno pobre.
-- **Hipótesis del prototipo:** con motivo de situación general y el perfil medio, Tres Tiempos rinde al menos lo mismo que la Carta Única en `Pago / (C + preguntas)`. Métrica de descarte en Open Questions.
+- **Las preguntas tienen que valer (D-58).** Si preguntar no mejora el pago, "no preguntar y leer siempre con la Carta Única" domina: en situación general y con `R_cliente` = 1, la Carta Única sin preguntas rinde 0,100·T por UT, contra 0,0825·T de Tres Tiempos sin preguntas y 0,055·T con 2 (revisión del 2026-10-26). Una pregunta sube el costo de la Carta Única un 50 % y el de Tres Tiempos un 25 %, así que tiene que mejorar el pago en esa proporción para valer. **Stub del prototipo** (lo reemplaza Resonancia): `R_cliente = R_0 · (1 + α · q)`, con `q` las preguntas hechas a ese cliente y `α` una perilla que se barre de 0,25 a 0,6. Con 2 preguntas, Tres Tiempos supera a la Carta Única sin preguntas solo si `α` ≥ 0,41 aproximadamente (`1,65·(1 + 2α)/30 ≥ 1/10`). Con `α` < 0,5, a la Carta Única no le conviene preguntar.
+- **Cruce por bolsillo:** con 2 preguntas, Tres Tiempos esperada (`b` = 1,1) contra la Carta Única sin bono, y `R_cliente` = 1, Tres Tiempos rinde más por UT solo si `B_cliente` > **1,5·T** (`B/30 = T/20`). Con `B_cliente` < `T`, la Carta Única gana siempre, porque las dos cobran `B` y ella cuesta menos.
+- **Hipótesis del prototipo:** con motivo de situación general, la elección de tirada varía con el cliente (su bolsillo y las preguntas), y ninguna estrategia domina el pago **por jornada**. Métrica de descarte en Open Questions.
 - Reemplaza la tarifa plana de `economia-mvp.md` §1; la economía y su script se recalibran (D-57, pendiente).
 
 **F4. Acertar el sí o no**
@@ -248,7 +269,7 @@ Las cuentas usan los datos de cobertura de Cartas (F3: `P_pos` ≈ 0,274 en Mayo
 - **La carta no informa:** como el reparto es independiente de la verdad (R7, D-37), P(sí | carta favorable) = `ρ`. Toda la información del sí o no sale del cliente (Pilar 1).
 - **Por qué `ρ` = 0,5:** con cualquier otro valor, contestar siempre lo mismo da más del 50 %.
 - **La carta restringe:** si el jugador cree "sí" y la Respuesta solo tiene palabras desfavorables, puede elegir una palabra ambigua (Match 0 seguro, porque una ambigua nunca es desenlace de un sí o no) o contradecirse. Cómo se castiga la contradicción lo define Resonancia.
-- **El lado "sí" tiene menos cobertura:** su verdad sale de 4 temas, que la tradición usa poco. `P_pos` del desenlace en un sí o no se calcula con los pesos renormalizados dentro de la valencia. Está en el informe de Cartas (`P_pos⁺_v`, Cartas F3; `P_cero_v(k)`, Cartas F4; D-53), y un mazo sin temas sorteables de una valencia es error de datos (`MAZO_SIN_VALENCIA`). La mezcla con `ρ` es `ρ·(1 − P_pos⁺_favorable) + (1 − ρ)·(1 − P_pos⁺_desfavorable)` en la Carta Única.
+- **El lado "sí" tiene menos cobertura:** su verdad sale de 4 temas, que la tradición usa poco. `P_pos` del desenlace en un sí o no se calcula con los pesos renormalizados dentro de la valencia. Está en el informe de Cartas (`P_pos⁺_v`, Cartas F3; `P_cero_v(k)`, Cartas F4; D-53), y un mazo sin temas sorteables de una valencia es error de datos (`MAZO_SIN_VALENCIA`). La probabilidad de que la Carta Única de un sí o no quede sin acierto posible es `ρ·(1 − P_pos⁺_favorable) + (1 − ρ)·(1 − P_pos⁺_desfavorable)`; no mide si la afirmación es correcta.
 
 **F5. Acierto posible con carta aclaratoria**
 
@@ -333,23 +354,26 @@ Elegir la tirada es un compromiso: una vez repartida no se cambia (R5). El momen
 ## UI Requirements
 
 - El selector de tiradas muestra, para cada tirada: nombre, cantidad de cartas, forma en el tapete, costo en UT y precio (`π`).
+- **Orden y foco fijos (Pilar 1, D-58):** las tiradas van siempre en el mismo orden, por costo de menor a mayor, y el foco inicial está siempre en la primera que se muestra. El foco nunca arranca en la tirada esperada ni en la última usada, y no hay marca de "recomendada" ni de "última usada": cualquiera de esas cosas le diría al jugador cuál es la esperada.
 - **Estado de cada tirada en el selector:**
 
   | Estado lógico | Se muestra | Motivo visible |
   |---|---|---|
-  | No disponible (States) | No | — |
+  | No disponible (States) | No | — (el anuncio del desbloqueo es de Fama, D-56) |
   | Disponible, con algún rol deshabilitado (R6, condición 2) | No | — (en el MVP no ocurre) |
-  | Disponible y con roles, sin vela suficiente (R6, condición 3) | Deshabilitada | "falta vela", con texto o ícono además del color |
+  | Disponible y con roles, sin vela suficiente (R6, condición 3) | Deshabilitada; puede recibir el foco | "falta vela", con texto o ícono además del color |
   | Ofrecida | Activa | — |
+  | Elegida (R5) | Activa y marcada como elegida, distinta del foco | — |
 
-  Si no se ofrece ninguna tirada, el selector se muestra igual, con todo deshabilitado, y siempre hay una salida: negociar la vuelta (R8f) o dejar ir al cliente.
+  Si no se ofrece ninguna tirada, el selector se muestra igual, con todo deshabilitado, y siempre hay una salida: negociar la vuelta (R8f) o dejar ir al cliente. Si la guarda de R6 rechaza el reparto (States, paso 5), la tirada pasa a "falta vela" y el selector vuelve a quedar abierto.
 - **Aclaratoria:** el botón muestra su costo y se ve igual en todas las posiciones (con rol o libres) y con cualquier carta (R8b). Si no se puede pedir, se ve deshabilitado con el motivo ("falta vela", "ya la usaste", "posición ya leída"). Elegir la posición y confirmar el pedido son dos acciones distintas (R8a).
+- **Confirmar una posición es irreversible** (States, paso 6.3). Mientras la aclaratoria todavía se puede pedir en esa posición, el botón lo dice ("cerrar sin aclaratoria"), con el mismo texto en todas las posiciones.
 - **Nada en la presentación depende del rol** de la posición, ni de si una carta tiene acierto posible: ni marco, ni color, ni orden, ni sonido.
 - **Negociar la vuelta (R8f):** la opción aparece por la vela, nunca por la forma del motivo, así que no delata cuál es la tirada esperada.
-- **La tirada esperada no se marca.** El motivo del cliente se dice en su texto ("¿me va a llamar, sí o no?"), y reconocer qué tirada pide es parte de leerlo (§3.3: lo aprendido no lo explica el juego).
+- **La tirada esperada no se marca.** El motivo del cliente se dice en su texto ("¿me va a llamar, sí o no?"), y reconocer qué tirada pide es parte de leerlo (§3.3: lo aprendido no lo explica el juego). El motivo no queda escrito en pantalla después de dicho (Pilar 3, States paso 1).
 - La advertencia de E1 aparece antes de confirmar la acción que deja la vela sin tirada posible.
 
-> 📌 **UX Flag — Tiradas:** antes de las historias del selector y del tapete hay que hacer su spec con `/ux-design`. Incluye: la disposición de la Cruz Celta en Switch portátil; la advertencia de la vela (alcance y frecuencia); la aclaratoria junto a su posición y la elección de palabra entre dos cartas; el control de sí o no; la diferencia entre elegir y confirmar con gamepad; el selector sin tiradas ofrecidas; y que el motivo del cliente quede visible al elegir. Los AC de UI (AC-20b, el selector y el tapete) se escriben ahí.
+> 📌 **UX Flag — Tiradas:** antes de las historias del selector y del tapete hay que hacer su spec con `/ux-design`. Incluye: la disposición de la Cruz Celta en Switch portátil; la advertencia de la vela (alcance y frecuencia); la aclaratoria junto a su posición y la elección de palabra entre dos cartas; el control de sí o no; la diferencia entre elegir y confirmar con gamepad; el selector sin tiradas ofrecidas; y cómo se dice el motivo para que se pueda recordar sin quedar escrito (Pilar 3). Los AC de UI (AC-20b, el selector y el tapete) se escriben ahí.
 
 ## Cross-References
 
@@ -364,21 +388,21 @@ Elegir la tirada es un compromiso: una vez repartida no se cambia (R5). El momen
 | D-09, D-14, D-23, D-28, D-37 | Robo al azar; tiradas y costos; MVP; vela por acción; Generador sin conocer la tirada |
 | D-48, D-50, D-51, D-52 | Sorteo de la verdad según el mazo; Carta Única → desenlace y pregunta de sí o no |
 | D-53, D-54, D-55 | Interfaz `k_tiradas` y umbral de impuesto de la aclaratoria; cifras con valencia para el prototipo; cobro al confirmar, Dos Caminos con desenlace, Credulidad y costos |
-| D-56, D-57 | Desbloqueo en Fama y sí o no sobre temas sorteables; precio por tirada, pago limitado por el cliente, vela corta, negociar la vuelta y requisito del sí o no a Resonancia |
+| D-56, D-57, D-58 | Desbloqueo en Fama y sí o no sobre temas sorteables; precio por tirada, pago limitado por el cliente, vela corta, negociar la vuelta y requisito del sí o no a Resonancia; pago con bono dentro del tope, preguntas que mejoran el pago, métrica de descarte en dos sentidos, vela corta al sentarse, negociar solo antes del reparto, operaciones por momento, motivo sin quedar escrito |
 | Taxonomía R8–R13, E3, E4 | Roles, posiciones libres, formas, validador; rol ausente; roles repetidos |
 | Cartas F1, F3, R11 | Pesos de la verdad; `P_pos`; informe de cobertura |
 
 ## Acceptance Criteria
 
 Convenciones de prueba:
-- Todo AC parte de `fixture_tiradas_valido` y lo muta en un solo punto. AC-01 prueba que el fixture sin mutar pasa limpio. Contenido mínimo del fixture: Carta Única y Tres Tiempos con las posiciones, roles y vecindades de R2 y R4; costos 10 y 20 UT; aclaratoria a 5 UT con `n_acl` = 1; las dos disponibles; roles origen, conflicto y desenlace habilitados. El archivo y los fixtures derivados (`tirada_vecina`, `tirada_sin_desenlace`) los fija la historia.
+- Todo AC parte de `fixture_tiradas_valido` y lo muta en un solo punto. AC-01 prueba que el fixture sin mutar pasa limpio. Contenido mínimo del fixture: Carta Única y Tres Tiempos con las posiciones, roles y vecindades de R2 y R4; costos 10 y 20 UT; aclaratoria a 5 UT con `n_acl` = 1; las dos disponibles; roles origen, conflicto y desenlace habilitados. El archivo y los fixtures derivados (`tirada_vecina`, `tirada_sin_desenlace`, `tirada_con_libre`: una tirada de prueba de 2 posiciones, `p1` con rol desenlace y `p2` libre) los fija la historia.
 - **Rechazo observable:** cuando un AC dice "se rechaza", significa: la operación devuelve error, la vela no cambia, no se piden cartas al mazo y el estado de la tirada no cambia.
 - Cada error se verifica por la regla de la que es (con el código que fije la historia) y por su sujeto en formato R13 de la Taxonomía. Los controles dicen "no contiene error de la regla X con sujeto S", nunca "no hay errores".
 - El RNG y el reparto se simulan; ningún test depende del azar.
 - `ROL_INEXISTENTE`, `FORMA_INEXISTENTE`, `POSICION_AMBIGUA` y `TIRADA_SIN_COMPARABLES` ya los prueban AC-31, AC-33, AC-37a/b y AC-38 de la Taxonomía, y SIN_COMPARACION su E3. No se repiten acá.
 - **Evidencia:** todos son Logic (test unitario en `[test root]/tiradas/`), salvo los marcados Integration, UI o Config/Data. Un AC *provisorio* depende de un GDD que todavía no existe: no se convierte en historia hasta que ese GDD exista y confirme el AC; desde ahí bloquea como cualquier otro.
-- **Dependencias provisorias:** los AC que usan la vela (AC-06, 19, 20a, 24, 26, 29) son *provisorios hasta Reloj de Vela*; los que reparten (AC-12, 13, 24) *hasta Mazo y Robo*; el bono y el resultado único (AC-14, 24) *hasta Resonancia*; el estado "leída" (AC-11, 26) *hasta Interpretación*.
-- **Sin AC, a propósito:** F2, F3, F3a y F5 son de calibración y ningún código del juego las calcula. La suma de deducción de F4 es de Detección. E5 lo cubre la Taxonomía (E3) y AC-08. La combinación de E7 es de Resonancia. E8 es una hipótesis del prototipo (Open Questions): se registra en el informe del prototipo con su métrica. R8f (negociar la vuelta) es de Fila y Mirilla; acá solo se prueba cuándo se ofrece (AC-30).
+- **Dependencias provisorias:** los AC que usan la vela (AC-06, 19, 20a, 24, 26, 29, 30, 31, 33) son *provisorios hasta Reloj de Vela*; los que reparten (AC-12, 13, 24) *hasta Mazo y Robo*; el bono, el pago y el resultado único (AC-14, 24, 31, 32) *hasta Resonancia*; el estado "leída" (AC-11, 26, 33, 35) *hasta Interpretación*; la negociación (AC-30) *hasta Fila y Mirilla*; los trucos (AC-21, 33) *hasta Prestidigitación*; la vecindad (AC-34) *hasta la Gramática*.
+- **Sin AC, a propósito:** F2, F3 y F5 son de calibración y ningún código del juego las calcula. F3a sí es regla de juego (el tope de R8e) y la prueba AC-32; el stub de las preguntas (`α`) es del prototipo y no tiene AC. R11a es un requisito a Resonancia: se traza en Open Questions (E8 y R11a) y se vuelve AC en el GDD de Resonancia. La suma de deducción de F4 es de Detección. E5 lo cubre la Taxonomía (E3) y AC-08. La combinación de E7 es de Resonancia. E8 es una hipótesis del prototipo (Open Questions): se registra en el informe del prototipo con su métrica. R8f (negociar la vuelta) es de Fila y Mirilla; acá solo se prueba cuándo se ofrece (AC-30).
 
 **Catálogo**
 - **AC-01** (R1–R12) — GIVEN `fixture_tiradas_valido`, WHEN se valida, THEN la lista está vacía.
@@ -426,15 +450,22 @@ Convenciones de prueba:
 - **AC-23** (R12, Tuning Knobs) — GIVEN `fixture_tiradas_valido` con la aclaratoria a 1 UT, 1 aclaratoria por tirada, la Carta Única a 20 UT y Tres Tiempos a 20 UT, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Lo mismo con la Carta Única a 25. Control: con 18 (18 + 1 = 19 < 20), no lo contiene.
 - **AC-24** (R8a) — GIVEN Tres Tiempos repartida y 10 UT, WHEN se pide una aclaratoria para Presente, THEN se reparte 1 carta más junto a Presente y se descuentan 5 UT; las palabras clave elegibles para Presente son las de las dos cartas, y Presente da un solo resultado.
 - **AC-25** (R8b) — GIVEN Tres Tiempos repartida con una carta sin acierto posible en Presente y cartas con acierto posible en Pasado y Futuro, en dos situaciones con verdades distintas, WHEN se piden las posiciones donde se ofrece la aclaratoria, THEN en las dos son exactamente [Pasado, Presente, Futuro]. Lo mismo en la Carta Única, con la Respuesta con y sin acierto posible.
+- **AC-25c** (R8b, E9) — GIVEN `tirada_con_libre`, repartida, con `p1` de rol desenlace y `p2` libre, y 100 UT, WHEN se piden las posiciones donde se ofrece la aclaratoria, THEN son exactamente [`p1`, `p2`], con la carta de `p1` con y sin acierto posible. Control contra la implementación que filtra: una oferta solo de posiciones con rol da [`p1`] y falla.
 - **AC-26a** (R8c) — GIVEN Tres Tiempos repartida y ninguna aclaratoria pedida, WHEN se piden las posiciones donde se ofrece, THEN con 5 UT se ofrece y con 4 no.
 - **AC-26b** (R8c) — GIVEN `n_acl` = 1 y una aclaratoria ya pedida en la tirada, WHEN se pide otra, THEN se rechaza (rechazo observable). Con `n_acl` = 2, la segunda se acepta y la tercera se rechaza.
 - **AC-26c** (R8c, States) — GIVEN Tres Tiempos repartida, ninguna aclaratoria pedida y la lectura de Presente confirmada, WHEN se piden las posiciones donde se ofrece, THEN son exactamente [Pasado, Futuro].
 - **AC-26d** (R8a) — GIVEN Tres Tiempos repartida y 10 UT, WHEN se elige Presente para la aclaratoria y se cancela antes de confirmar, THEN la vela sigue en 10, no se pidió carta y la aclaratoria sigue disponible.
 - **AC-27** (R12, Tuning Knobs) — GIVEN la aclaratoria a 10 UT, 1 aclaratoria por tirada, con Carta Única a 10 y Tres Tiempos a 20, WHEN se valida, THEN contiene error de costos con sujeto `tirada.carta_unica`. Con 9, no lo contiene. Con la aclaratoria a 5 y 2 aclaratorias por tirada (10 + 2 · 5 = 20), lo contiene; con Tres Tiempos a 21, no.
 - **AC-28** (R8b, D-50) — GIVEN cartas cuyo `acierto_posible` falla al leerse, por cualquier vía, y un acceso a la verdad que falla si se lo lee, WHEN se arma la oferta de aclaratoria de Tres Tiempos, THEN se arma sin fallar y es exactamente [Pasado, Presente, Futuro].
-- **AC-29** (R5, R6) — GIVEN 30 UT, WHEN se elige la Carta Única, se cambia a Tres Tiempos y se confirma el reparto, THEN la vela queda en 10 (se descontaron 20, una vez). Elegir sin confirmar no descuenta nada. Si la vela baja a 15 entre la elección de Tres Tiempos y la confirmación, el reparto se rechaza y la vela sigue en 15.
-- **AC-30** (R8, R8f, E1; *provisorio hasta Reloj de Vela y Fila y Mirilla*) — GIVEN un cliente con `forma.situacion_general`, WHEN se pregunta si se puede negociar la vuelta, THEN con 15 UT sí (Tres Tiempos no se ofrece), con 9 UT sí (no se ofrece ninguna) y con 20 UT no. Con `forma.si_o_no` da lo mismo en los tres casos: la opción no depende de la forma. Control: con 15 UT y Tres Tiempos no disponible, no se puede negociar.
-- **AC-31** (R8; *provisorio hasta Resonancia*) — GIVEN `forma.situacion_general` y 15 UT, WHEN se lee con la Carta Única, THEN la lectura no lleva bono de tirada ni marca de baja de Credulidad. Control: con 30 UT y la Carta Única, lleva la marca de baja.
+- **AC-29a** (R5) — GIVEN 30 UT, WHEN se elige la Carta Única, se cambia a Tres Tiempos y se confirma el reparto, THEN la vela queda en 10 (se descontaron 20, una vez).
+- **AC-29b** (R5) — GIVEN 30 UT, WHEN se elige una tirada y no se confirma, THEN la vela sigue en 30.
+- **AC-29c** (R6, States paso 5; guarda) — GIVEN Tres Tiempos elegida y un doble de Reloj de Vela que informa 15 UT al confirmar (en el orden de States no hay causa legal: prueba la guarda), WHEN se confirma el reparto, THEN se rechaza (rechazo observable), la vela sigue en 15 y la tirada vuelve a poder elegirse.
+- **AC-30** (R8, R8f, E1; *provisorio hasta Reloj de Vela y Fila y Mirilla*) — GIVEN un cliente con `forma.situacion_general` y la tirada sin repartir, WHEN se pregunta si se puede negociar la vuelta, THEN con 19 y con 15 UT sí (Tres Tiempos no se ofrece), con 9 UT sí (no se ofrece ninguna) y con 20 UT no. Con `forma.si_o_no` da lo mismo en los cuatro casos: la opción no depende de la forma. Controles: con 15 UT y Tres Tiempos no disponible, no; con 25 UT y Dos Caminos disponible pero `rol.camino_b` deshabilitado, no (no es ofrecible por catálogo); con la tirada ya repartida y 5 UT, no.
+- **AC-31** (R8, vela corta; *provisorio hasta Reloj de Vela y Resonancia*) — GIVEN `forma.situacion_general` y 15 UT al sentarse el cliente, WHEN se lee con la Carta Única, THEN la lectura no lleva bono de tirada ni marca de baja de Credulidad. Controles: con 30 UT al sentarse, lleva la marca de baja; con 25 UT al sentarse y 2 preguntas (15 UT al elegir), también la lleva.
+- **AC-32** (F3a, R8e; *provisorio hasta Resonancia*) — GIVEN `T` = 4, WHEN se calcula el pago, THEN con Tres Tiempos (`π` = 1,5), `R_cliente` = 1, `b` = 1 y `B_cliente` = 10, da 6; con `B_cliente` = 5, da 5; con `R_cliente` = 0, da 0; con `B_cliente` = 0 y `R_cliente` = 2, da 0; con `b` = 1,1 y `B_cliente` = 10, da 6,6; con `b` = 1,1 y `B_cliente` = 5, da 5 (el bono no supera el tope). Tolerancia 1e-9.
+- **AC-33** (States, operaciones permitidas; *provisorio hasta Reloj de Vela, Interpretación y Prestidigitación*) — GIVEN cada fila de la tabla de operaciones permitidas de States, WHEN se intenta la operación en un momento de la columna "Se rechaza", THEN se rechaza (rechazo observable). Casos mínimos: confirmar el reparto sin tirada elegida; elegir palabra, pedir aclaratoria, hacer un truco o confirmar una posición antes del reparto; preguntar o negociar después del reparto; pedir aclaratoria, elegir palabra o hacer un truco sobre una posición confirmada; confirmar dos veces una posición; confirmar la lectura completa de un sí o no sin afirmar. Control: cada operación, en un momento de la columna "Permitida", se acepta.
+- **AC-34** (R8d; *provisorio hasta la Gramática*) — GIVEN Tres Tiempos repartida con una aclaratoria en Presente, WHEN se piden las vecindades que usa la Gramática, THEN son exactamente Pasado–Presente y Presente–Futuro, y ninguna nombra la carta aclaratoria.
+- **AC-35** (States paso 6; *provisorio hasta Interpretación*) — GIVEN Tres Tiempos repartida con una palabra elegida en Presente, WHEN se pide la aclaratoria para Presente, THEN la palabra elegida se conserva. Y con Pasado sin palabra ni confirmación, al confirmar la lectura completa, Pasado queda confirmada con resultado NINGUNO.
 
 ## Open Questions
 
@@ -446,14 +477,17 @@ Convenciones de prueba:
 | Qué desbloquea Dos Caminos y El Vínculo, y desde qué sede aparece la Cruz Celta | GDD de Fama, Reputación y Ascenso de Sede (D-56) | Antes del Vertical Slice |
 | Negociar la vuelta (R8f): si el cliente vuelve, cuánto cambian Paciencia, enojo y otras métricas por arquetipo, y qué pasa con el cliente que se deja ir sin negociar (E1) | GDD de Fila y Mirilla, Métricas del Cliente | Al diseñar Fila y Mirilla |
 | ¿El estatus del cliente (§5.4, "lo que puede pagar") limita qué tiradas se le ofrecen? | GDD de Arquetipos, economía | Al diseñar Arquetipos |
-| **Hipótesis del prototipo (D-57):** con precio por tirada (`π`) y pago limitado por el cliente (F3a), elegir tirada deja de ser solo reconocer la forma. Valores iniciales: `π` de R1, `B_tirada` ×1,1 sobre el pago, baja de Credulidad de 10 puntos. **Métrica de descarte:** si más del 80 % de los clientes de situación general con vela suficiente se leen con la Carta Única, la hipótesis cae. Con estos valores y el cliente satisfecho, Tres Tiempos rinde 0,055·T por UT contra 0,050·T de la Carta Única en situación general, y al revés en sí o no; ante un cliente que no puede pagar 1,65·T conviene la Carta Única. La baja de Credulidad casi no pesa con los clientes pobres de la Sede 1 (revisión del 2026-10-25): el peso lo carga el precio | Diseñador | Prototipo del núcleo |
+| **Hipótesis del prototipo (D-57, D-58):** con precio por tirada (`π`), pago limitado por el cliente (F3a) y preguntas que mejoran el pago, elegir tirada deja de ser solo reconocer la forma. Valores iniciales: `π` de R1 (el de Tres Tiempos se barre de 1,5 a 2), `B_tirada` ×1,1 dentro del tope (F3a), baja de Credulidad de 10 puntos, stub de las preguntas `R_cliente = R_0·(1 + α·q)` con `α` barrido de 0,25 a 0,6 (F3a). **Métrica de descarte, en los dos sentidos:** la hipótesis cae si, entre los clientes de situación general con vela suficiente al sentarse, más del 80 % se leen con la Carta Única (domina la barata) **o** más del 95 % con la tirada esperada (domina la forma: no hay decisión). Se mide **por jornada**, no por UT, y se registran las preguntas por cliente (`q`), `B_cliente / T` y el pago por jornada. Referencia por UT, con 2 preguntas y el cliente satisfecho: Tres Tiempos 0,055·T contra 0,050·T de la Carta Única en situación general, y al revés en sí o no; con `B_cliente` < 1,5·T conviene la Carta Única. Sin preguntas, la Carta Única domina salvo que `α` ≥ 0,41 (F3a). La baja de Credulidad casi no pesa con los clientes pobres de la Sede 1 (revisión del 2026-10-25): el peso lo carga el precio | Diseñador | Prototipo del núcleo |
+| **Datos del fixture del prototipo (D-58):** distribución de `B_cliente / T` por sede y estatus, y al menos 2 señales observables de lo que tiene el cliente (R8e). Sin esto la hipótesis no se puede medir | Diseñador (dato del prototipo); Arquetipos y Generador lo heredan | Antes del prototipo del núcleo |
+| **R8f en el prototipo (D-58):** entra con un stub de costo fijo: Paciencia −1 y 50 % de probabilidad de que el cliente vuelva la próxima jornada, registrados como parámetros. Se registra cuántas veces se negocia y con qué `B_cliente / T`, para detectar si se usa para diferir a los clientes que pagan más | Diseñador | Prototipo del núcleo |
 | Recalibrar `economia-mvp.md` y `tools/balance/economia_mvp.py` con el precio por tirada y el pago limitado (F3a): hoy suponen tarifa plana, no modelan aclaratoria, trucos ni elección según la forma, descartan las UT entre 10 y 19 y no bajan a Carta Única cuando no alcanza para Tres Tiempos | Diseñador, economía | Antes de cerrar la economía del MVP |
-| Cómo se deduce lo que tiene el cliente (`B_cliente`, F3a): ropa, arquetipo, tells | GDD de Arquetipos, Detección | Al diseñar Arquetipos |
+| Cómo se deduce lo que tiene el cliente (`B_cliente`, F3a): ropa, arquetipo, tells. Requisito de R8e: al menos 2 señales observables | GDD de Arquetipos, Detección | Al diseñar Arquetipos |
 | E8 y R11a: proporción de Cartas Únicas de sí o no resueltas con una palabra ambigua. Si pasa del 50 %, el refugio en la ambigua es la jugada por defecto y Resonancia no cumple R11a | Diseñador | Prototipo del núcleo |
 | Con 10 a 14 UT, elegir la Carta Única deja sin aclaratoria justo cuando la carta puede salir muda. Medirlo con el umbral de impuesto de la aclaratoria (D-53) | Diseñador | Prototipo del núcleo |
 | ¿Carta Única + *invertir* (12 UT) desplaza a Tres Tiempos (20 UT)? Medir | Diseñador | Prototipo del núcleo |
 | ¿Las posiciones libres de la Cruz Celta y El Vínculo se sienten como una falsa elección? | Diseñador | Playtest |
 | La tirada final del Mapa B (Cruz Celta del Lunes Negro) | `design/mapas/mapa-b-new-carthage.md` | Fuera del MVP |
+| **Condición para habilitar la Cruz Celta:** no se habilita sin spec aprobado de `/ux-design` y una prueba en Switch portátil (10 cartas, aclaratoria y dos listas de palabras en pantalla chica). Si no entra, se revisa D-14 | `/ux-design`, Diseñador | Antes de habilitar la Cruz Celta |
 | ¿El cliente desconfía de un tarotista que saca una carta aclaratoria (Credulidad)? | GDD de Resonancia, Métricas del Cliente | Al diseñar Resonancia |
 | ¿La aclaratoria participa de la Gramática (dignidades con la carta de su posición)? | GDD de Gramática | Al diseñar la Gramática |
 | Medir en el prototipo si la aclaratoria ciega rescata lo suficiente o si el Pilar 6 necesita otra palanca | Diseñador | Prototipo del núcleo |
