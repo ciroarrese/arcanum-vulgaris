@@ -491,7 +491,7 @@ constants:
     referenced_by:
       - design/gdd/tiradas.md
     value: 5
-    unit: UT por carta aclaratoria (una por tirada)
+    unit: UT por carta aclaratoria (hasta n_acl por tirada, una por posición)
     added: 2026-10-25
     revised: ""
   - name: aclaratorias_por_tirada
@@ -503,6 +503,56 @@ constants:
     value: 1
     unit: aclaratorias por tirada en total (n_acl; como máximo una por posición, D-59)
     added: 2026-10-26
+    revised: ""
+  - name: precio_carta_unica
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - prototypes/nucleo/plan-hipotesis-tiradas.md
+    value: 1.0
+    unit: multiplicador sobre la tarifa del cliente (π, provisorio hasta el prototipo)
+    added: 2026-11-02
+    revised: ""
+  - name: precio_tres_tiempos
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - prototypes/nucleo/plan-hipotesis-tiradas.md
+    value: 1.5
+    unit: multiplicador sobre la tarifa del cliente (π, provisorio hasta el prototipo)
+    added: 2026-11-02
+    revised: ""
+  - name: precio_dos_caminos
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - prototypes/nucleo/plan-hipotesis-tiradas.md
+    value: 2.0
+    unit: multiplicador sobre la tarifa del cliente (π, provisorio hasta el prototipo)
+    added: 2026-11-02
+    revised: ""
+  - name: precio_vinculo
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - prototypes/nucleo/plan-hipotesis-tiradas.md
+    value: 2.0
+    unit: multiplicador sobre la tarifa del cliente (π, provisorio hasta el prototipo)
+    added: 2026-11-02
+    revised: ""
+  - name: precio_cruz_celta
+    status: active
+    source: design/gdd/tiradas.md
+    referenced_by:
+      - design/gdd/tiradas.md
+      - prototypes/nucleo/plan-hipotesis-tiradas.md
+    value: 3.0
+    unit: multiplicador sobre la tarifa del cliente (π, provisorio hasta el prototipo)
+    added: 2026-11-02
     revised: ""
 
 # Example:

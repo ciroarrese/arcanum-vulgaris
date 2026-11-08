@@ -163,3 +163,34 @@ Reviewed-Content-Hash: design/balance/cifras-cartas.md a55d6717e2bd70757e764fc8a
 Reviewed-Content-Hash: design/balance/economia-mvp.md 9d7032562c3c2d170b30213df756fdc90f791147
 Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
 Reviewed-Content-Hash: tools/balance/economia_mvp.py 319c7d2b47321f84d97aabf8bbc8ddd39d588aef
+
+## Review — 2026-11-02 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: ninguno (lean)
+Blocking items: 2 | Recommended: 7
+Summary: Quinta pasada, en lean. Los 11 bloqueantes de la cuarta figuran corregidos y la aritmética de F2, F3 y F5 se verificó a mano. Quedaban dos huecos de especificación: pedir que repita el motivo costaba UT pero no figuraba en States ni en la tabla de operaciones (y R5, E1 y la vista previa solo hablaban de preguntas), y Game Feel contradecía D-59. El diseñador aplicó también todos los recomendados y decidió el cliente que vuelve y el régimen de la Sede 1 (D-60).
+Prior verdict resolved: Yes
+Findings:
+- [BLOCKING] States/R5/E1/UI: gasto de vela previo al reparto sin cerrar; "pedir que repita" fuera de la tabla de operaciones; revalidación del paso 5 descrita como camino normal.
+- [BLOCKING] Game Feel: "elegir la tirada es un compromiso" contradice R5 y D-59.
+- [RECOMMENDED] R8f: no decía qué conserva el cliente que vuelve; con la misma verdad se puede interrogar hoy y leer mañana.
+- [RECOMMENDED] Player Fantasy/Open Questions: con 2–3 clientes en la Sede 1 la vela no aprieta; la fecha de "Fila Base" era posterior al prototipo.
+- [RECOMMENDED] R12/AC-27/Tuning Knobs: la regla de costos usaba n_acl crudo; la Carta Única usa como máximo una aclaratoria.
+- [RECOMMENDED] R12/Registro: π sin dominio en el validador ni entradas en el registro.
+- [RECOMMENDED] Dependencies/Interactions: faltaban Arquetipos, Detección, Métricas del Cliente, Preguntas y Flujo de Jornada.
+- [RECOMMENDED] E1/UI: la vista previa de la vela no tenía AC lógico.
+- [RECOMMENDED] AC-21/AC-32: truco sobre la aclaratoria sin cubrir; bono implícito en el 6,6.
+Decisiones del diseñador (D-60): sin repetir el motivo después del reparto; el cliente que vuelve trae la misma situación, con métrica de descarte en el plan en lugar de reabrir el intercalado de D-59; Sede 1 como aprendizaje.
+Receipt: sellado sobre la versión revisada (HEAD 14b5bac), antes de las correcciones.
+Reviewed-Content-Hash: design/gdd/tiradas.md 72401a63aacf271e2fbbdfb05f3eb5f155226c9a
+Reviewed-Content-Hash: design/registry/entities.yaml 16725d62407b2cf583db041c05e2064f342dd21f
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/taxonomia-de-temas-y-roles.md 194338d159df1c729fbd990fbcb4a6f285e5485d
+Reviewed-Content-Hash: design/gdd/base-de-datos-de-cartas.md f80b4d4e0e585f627514a0d111fb3486f46a3425
+Reviewed-Content-Hash: design/gdd/game-concept.md 4405d37092a5eb83ecbd4495a41b5db928dc4617
+Reviewed-Content-Hash: design/gdd/systems-index.md 45bc092b57bb53392663a5347d5d152be52180df
+Reviewed-Content-Hash: design/decision-log.md b85c9a23e3437c715ff78ce47ab100ccb156715d
+Reviewed-Content-Hash: design/balance/economia-mvp.md f6ea6f0ffa1280b9f7272be8b9c75cb0b59e057b
+Reviewed-Content-Hash: design/ARCANUM_VULGARIS_GDD.md c5059d53f17055a59c460c9d4f734b3264c606f4
+Reviewed-Content-Hash: prototypes/nucleo/plan-hipotesis-tiradas.md 831ba28d1b231a6b38f77512fee0c7a7d3a9043a

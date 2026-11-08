@@ -2,7 +2,7 @@
 
 # Plan del prototipo del núcleo — Hipótesis de Tiradas
 
-> **Estado:** borrador (D-59, 2026-10-26). Prototipo descartable: estos valores no son diseño final.
+> **Estado:** borrador (D-59, 2026-10-26; D-60, 2026-11-02: régimen de la Sede 1 y cliente que vuelve). Prototipo descartable: estos valores no son diseño final.
 > **Origen:** sale de `design/gdd/tiradas.md` F3a y Open Questions. El GDD conserva solo los invariantes del pago (F3a) y los requisitos a Resonancia y Arquetipos (R8e); todo lo que es modelo, barrido y métrica vive acá.
 > **Por qué:** la cuarta revisión de Tiradas (2026-10-26) encontró que cada número provisorio puesto en el GDD para sostener la hipótesis abría huecos nuevos. La hipótesis se mide en el prototipo, como pide D-54.
 
@@ -51,8 +51,8 @@ Modelo de acierto de los bots (solo para ellos): probabilidad de éxito por perf
 `N` es un parámetro, no un supuesto. Se barre en {3, 5, 7, 9}.
 
 - **Régimen principal: vela escasa** (Pilar 5: atender a fondo a un pez gordo tiene que costar). Es el `N` más chico en que la vela de 100 UT no alcanza para leer a todos con Tres Tiempos y 2 preguntas (30 UT por cliente): hoy `N` ≥ 4.
-- Con `N` = 3 sobra vela y Tres Tiempos con preguntas al máximo debería ganar siempre: se corre como control, no cuenta para la métrica.
-- Qué significa "Fila Base" del GDD maestro §7.5 (total de la jornada o largo de la fila con reposición) lo decide Fila y Mirilla; este plan no depende de esa respuesta.
+- **Régimen de Sede 1: `N` = 3** (Fila Base 2–3 con Fama 0). Sobra vela y Tres Tiempos con preguntas debería ganar siempre: es diseño aceptado (D-60, la Sede 1 funciona como aprendizaje). Se mide y se reporta aparte, sin descartar la hipótesis por las métricas 1 y 2 de la §6. Lo que se mira ahí es si el tope de `B_cliente` y la Credulidad sostienen alguna elección distinta de Tres Tiempos.
+- Qué significa "Fila Base" (total de la jornada o largo de la fila con reposición) lo decide Fila y Mirilla antes de cerrar este plan. Si es el largo con reposición, la Sede 1 pasa al régimen de vela escasa y se mide con él.
 
 ## 5. Datos de los clientes
 
@@ -85,7 +85,8 @@ Se registra por cliente: tirada, preguntas (`q`), `B_cliente / T`, intención, s
 
 - Condición: la vela **al sentarse** no alcanzaba para alguna tirada ofrecible (Tiradas R8f, D-59).
 - Stub de costo: Paciencia −1 y probabilidad de que vuelva `p_vuelve` barrida en {0,3; 0,5; 0,7}.
-- El cliente que vuelve es una atención nueva: llega sin las preguntas hechas.
+- El cliente que vuelve es una atención nueva **con la misma situación** (verdad, motivo, polaridad y `B_cliente`, D-60): llega sin las preguntas hechas, pero el jugador puede recordar lo que observó.
+- **Descarte (interrogar hoy, leer mañana):** si más del 40 % de las negociaciones vienen después de 2 preguntas o más, y esos clientes, al volver, pagan en promedio más del 20 % por encima de los leídos el mismo día con las mismas preguntas, R8f se usa para comprar información con vela que se iba a perder. Hay que subir su costo o rediseñarla. *Umbrales del prototipo.*
 - **Descarte:** si más del 30 % de las negociaciones se hacen con `B_cliente / T` ≥ 2 y la tasa de vuelta efectiva supera el punto de indiferencia, R8f se usa para diferir a los clientes ricos y hay que rediseñarla.
 
 ## 8. Otras mediciones del núcleo (vienen de Open Questions de Tiradas)
